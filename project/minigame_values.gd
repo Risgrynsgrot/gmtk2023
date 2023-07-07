@@ -1,4 +1,4 @@
-class_name minigame_values
+class_name MinigameValues
 
 var confidence: int
 var wind: float
