@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://jvc3ih2x10gc"]
+
+[ext_resource type="Script" path="res://Scripts/Clapper.gd" id="1_huyn0"]
+[ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_pbqhl"]
+
+[node name="Clapper" type="Node2D" node_paths=PackedStringArray("hand_in", "hand_out", "right_hand")]
+script = ExtResource("1_huyn0")
+hand_in = NodePath("HandIn")
+hand_out = NodePath("HandOut")
+right_hand = NodePath("HandRight")
+
+[node name="HandLeft" type="Sprite2D" parent="."]
+scale = Vector2(-1, 1)
+texture = ExtResource("2_pbqhl")
+
+[node name="HandRight" type="Sprite2D" parent="."]
+position = Vector2(28, 3)
+texture = ExtResource("2_pbqhl")
+
+[node name="HandOut" type="Marker2D" parent="."]
+position = Vector2(90, -4)
+
+[node name="HandIn" type="Marker2D" parent="."]
+position = Vector2(12, 4)

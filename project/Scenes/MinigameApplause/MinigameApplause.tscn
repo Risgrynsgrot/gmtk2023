@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://4cmku5owv4jy"]
+
+[ext_resource type="Script" path="res://Scripts/MinigameApplause.gd" id="1_lics6"]
+[ext_resource type="PackedScene" uid="uid://jvc3ih2x10gc" path="res://Scenes/MinigameApplause/Clapper.tscn" id="2_mi0v4"]
+
+[node name="MinigameApplause" type="Node2D" node_paths=PackedStringArray("progress_bar")]
+script = ExtResource("1_lics6")
+progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
+
+[node name="Clapper" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_mi0v4")]
+position = Vector2(147, 109)
+minigame = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -124.0
+grow_horizontal = 0
+grow_vertical = 2
+fill_mode = 3
