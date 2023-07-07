@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MinigameManager="*res://Scenes/minigame_manager.tscn"
+MinigameManager="*res://Scenes/MinigameManager.tscn"
 
 [rendering]
 

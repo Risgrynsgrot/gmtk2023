@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dk47b6bwiqaff"]
 
-[ext_resource type="PackedScene" uid="uid://c6a3toel8dyh8" path="res://Scenes/minigame_manager.tscn" id="1_sh7tn"]
+[ext_resource type="PackedScene" uid="uid://c6a3toel8dyh8" path="res://Scenes/MinigameManager.tscn" id="1_sh7tn"]
 
 [node name="Main" type="Node2D"]
 
