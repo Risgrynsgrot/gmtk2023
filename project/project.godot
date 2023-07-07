@@ -14,6 +14,10 @@ config/name="gmtk2023_golf"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MinigameManager="*res://minigame_manager.tscn"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
