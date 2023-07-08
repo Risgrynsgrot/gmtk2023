@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx847wturq7la"]
+
+[ext_resource type="Texture2D" uid="uid://bjrl5w8ghejvs" path="res://Sprites/Person Transparent.png" id="1_cexjr"]
+[ext_resource type="Script" path="res://Scenes/MinigameMoveAudiance/Caddy.gd" id="1_yi4n4"]
+[ext_resource type="Texture2D" uid="uid://bw70dwftmv6vp" path="res://Sprites/Person Transparent Red.png" id="2_jfud0"]
+[ext_resource type="Script" path="res://Scenes/MinigameMoveAudiance/Audiance.gd" id="3_drptv"]
+[ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="4_u1e16"]
+
+[node name="MinigameMoveAudiance" type="Node2D"]
+
+[node name="Caddy" type="Node2D" parent="."]
+position = Vector2(1095, 552)
+script = ExtResource("1_yi4n4")
+
+[node name="PersonTransparent" type="Sprite2D" parent="Caddy"]
+position = Vector2(0, 3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_cexjr")
+
+[node name="Audiance" type="Node2D" parent="."]
+script = ExtResource("3_drptv")
+
+[node name="PersonTransparentRed" type="Sprite2D" parent="Audiance"]
+position = Vector2(443, 209)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed2" type="Sprite2D" parent="Audiance"]
+position = Vector2(787, 211)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed3" type="Sprite2D" parent="Audiance"]
+position = Vector2(349, 406)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed4" type="Sprite2D" parent="Audiance"]
+position = Vector2(853, 403)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed5" type="Sprite2D" parent="Audiance"]
+position = Vector2(611, 393)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed6" type="Sprite2D" parent="Audiance"]
+position = Vector2(427, 569)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed7" type="Sprite2D" parent="Audiance"]
+position = Vector2(747, 563)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="PersonTransparentRed8" type="Sprite2D" parent="Audiance"]
+position = Vector2(621, 113)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="Ball" type="Node2D" parent="."]
+position = Vector2(645, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(30, 30)
+texture = ExtResource("4_u1e16")

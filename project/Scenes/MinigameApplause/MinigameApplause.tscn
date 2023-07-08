@@ -9,6 +9,7 @@ progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 time_limit = 10.0
 
 [node name="Clapper" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_mi0v4")]
+position = Vector2(147, 109)
 minigame = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
