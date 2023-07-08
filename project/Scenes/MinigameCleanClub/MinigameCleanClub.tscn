@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://7oejxy5ta3o7"]
+[gd_scene load_steps=5 format=3 uid="uid://7oejxy5ta3o7"]
 
 [ext_resource type="Script" path="res://Scripts/MinigameCleanClubs.gd" id="1_r2q8n"]
 [ext_resource type="PackedScene" uid="uid://cjkycjc2ey38b" path="res://Scenes/MinigameCleanClub/ClubMedium.tscn" id="2_2sv80"]
 [ext_resource type="Texture2D" uid="uid://l0ptitftc0f4" path="res://Sprites/cleaning_cloth.png" id="3_ask6w"]
+[ext_resource type="Script" path="res://Scripts/CleaningCloth.gd" id="3_mjjio"]
 
 [node name="CleanClub" type="Node2D"]
 
-[node name="MinigameCleanClubs" type="Node" parent="." node_paths=PackedStringArray("clubs")]
+[node name="MinigameCleanClubs" type="Node" parent="." node_paths=PackedStringArray("clubs", "cleaning_cloth")]
 script = ExtResource("1_r2q8n")
 clubs = [NodePath("Club"), NodePath("Club2"), NodePath("Club3"), NodePath("Club4")]
+cleaning_cloth = NodePath("CleaningCloth")
 
 [node name="Club" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
 position = Vector2(150, 793)
@@ -23,7 +25,10 @@ position = Vector2(602, 792)
 position = Vector2(837, 782)
 
 [node name="CleaningCloth" type="Node2D" parent="MinigameCleanClubs"]
+position = Vector2(614, 1003)
+script = ExtResource("3_mjjio")
 
 [node name="Sprite2D" type="Sprite2D" parent="MinigameCleanClubs/CleaningCloth"]
-position = Vector2(566, 1165)
+position = Vector2(-11, 95)
+scale = Vector2(0.428124, 0.428124)
 texture = ExtResource("3_ask6w")
