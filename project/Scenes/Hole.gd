@@ -16,3 +16,5 @@ func _get_furthest_in_reach_aim_pos(pos:Vector2, max_distance:float):
 			return return_value
 		else:
 			return_value = markers.position
+			
+	return some_aim_markers.back().position
