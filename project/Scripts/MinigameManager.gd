@@ -12,6 +12,8 @@ signal on_time_out()
 @onready var time_left_progress_bar: ProgressBar = %TimeLeftProgressBar
 @onready var timeout_label: Label = %WinLabel
 
+var is_active = false
+
 var current_time_limit: float
 var current_minigame_index: int
 var current_minigame_scene: Node
@@ -19,7 +21,7 @@ var current_minigame_scene: Node
 func _ready():
 	on_minigame_finished.connect(_on_minigame_finished)
 	on_minigame_started.connect(_on_minigame_started)
-	start_new_minigame()
+	#start_new_minigame()
 
 func start_new_minigame():
 	current_minigame_index = randi() % minigames.size()
@@ -28,8 +30,8 @@ func start_new_minigame():
 
 func _process(_delta):
 	#time_left_text.text = "Time left: " + str(game_timer.time_left)
-	time_left_progress_bar.value = game_timer.time_left
-
+	if is_active:
+		time_left_progress_bar.value = game_timer.time_left
 
 func _on_minigame_finished(values: MinigameValues, finished_text: String):
 #instead of connecting here we connect for example the player, so they get the
@@ -41,6 +43,8 @@ func _on_minigame_finished(values: MinigameValues, finished_text: String):
 	timeout_label.text = finished_text
 	timeout_label.show()
 	post_game_delay.start()
+	time_left_progress_bar.hide()
+	is_active = false
 
 func _on_minigame_started(time_limit: float):
 	current_time_limit = time_limit
@@ -48,6 +52,8 @@ func _on_minigame_started(time_limit: float):
 	game_timer.start()
 	time_left_progress_bar.min_value = 0
 	time_left_progress_bar.max_value = current_time_limit
+	time_left_progress_bar.show()
+	is_active = true
 
 func _on_game_timer_timeout():
 	on_time_out.emit()

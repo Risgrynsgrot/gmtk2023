@@ -37,6 +37,7 @@ one_shot = true
 
 [node name="TimeLeftProgressBar" type="ProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_right = 425.0
 offset_bottom = 55.0
 
