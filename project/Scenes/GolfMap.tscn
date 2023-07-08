@@ -1,14 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsp28litskf2"]
+[gd_scene load_steps=7 format=3 uid="uid://dsp28litskf2"]
 
 [ext_resource type="Texture2D" uid="uid://t633q2u0od11" path="res://Sprites/stadium02.jpg" id="1_n24sp"]
+[ext_resource type="Script" path="res://Scenes/Hole.gd" id="1_qnm4j"]
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="2_jmgno"]
 [ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="3_3x8cb"]
 
+[sub_resource type="Curve" id="Curve_xqtuq"]
+_data = [Vector2(0, 0), 0.0, 2.11435, 0, 0, Vector2(0.5, 0.7), 0.833992, 0.833992, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_sfo6b"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.767773, 0.195729), -1.50178, -1.50178, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="GolfMap" type="Node2D"]
+position = Vector2(640, 373)
+rotation = 1.5708
+scale = Vector2(0.8, 0.797)
 
-[node name="Bob" type="Node2D" parent="."]
-
-[node name="Hole Test" type="Node2D" parent="."]
+[node name="Hole Test" type="Node2D" parent="." node_paths=PackedStringArray("some_aim_markers", "start_marker")]
+script = ExtResource("1_qnm4j")
+some_aim_markers = [NodePath("Middle Position 2"), NodePath("Middle Position 3"), NodePath("End Position")]
+start_marker = NodePath("Start Position")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hole Test"]
 texture = ExtResource("1_n24sp")
@@ -17,17 +31,24 @@ texture = ExtResource("1_n24sp")
 position = Vector2(16, 623)
 
 [node name="Middle Position 2" type="Marker2D" parent="Hole Test"]
-position = Vector2(-38, -93)
+position = Vector2(-30, 97)
 
 [node name="Middle Position 3" type="Marker2D" parent="Hole Test"]
-position = Vector2(-28, -393)
+position = Vector2(-28, -367)
 
 [node name="End Position" type="Marker2D" parent="Hole Test"]
 position = Vector2(8, -591)
 
-[node name="Ball" type="Node2D" parent="."]
-position = Vector2(51, 620)
+[node name="Ball" type="Node2D" parent="." node_paths=PackedStringArray("hole")]
+position = Vector2(51.2497, 619.824)
 script = ExtResource("2_jmgno")
+hole = NodePath("../Hole Test")
+ball_max_fly_time = 4.0
+max_distance = 1000.0
+current_distance = 500.0
+time_to_lerp_distance_curve = SubResource("Curve_xqtuq")
+time_to_scale_deformation_curve = SubResource("Curve_sfo6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_3x8cb")
