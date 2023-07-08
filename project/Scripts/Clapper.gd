@@ -13,7 +13,8 @@ var is_active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	position = get_viewport_rect().size / 2
+	position.x -= get_viewport_rect().size.x / 6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
