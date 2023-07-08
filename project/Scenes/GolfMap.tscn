@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsp28litskf2"]
 
+[ext_resource type="Script" path="res://Scripts/Hole.gd" id="1_j10os"]
 [ext_resource type="Texture2D" uid="uid://t633q2u0od11" path="res://Sprites/stadium02.jpg" id="1_n24sp"]
-[ext_resource type="Script" path="res://Scenes/Hole.gd" id="1_qnm4j"]
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="2_jmgno"]
 [ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="3_3x8cb"]
 
@@ -20,7 +20,7 @@ rotation = 1.5708
 scale = Vector2(0.8, 0.797)
 
 [node name="Hole Test" type="Node2D" parent="." node_paths=PackedStringArray("some_aim_markers", "start_marker")]
-script = ExtResource("1_qnm4j")
+script = ExtResource("1_j10os")
 some_aim_markers = [NodePath("Middle Position 2"), NodePath("Middle Position 3"), NodePath("End Position")]
 start_marker = NodePath("Start Position")
 
