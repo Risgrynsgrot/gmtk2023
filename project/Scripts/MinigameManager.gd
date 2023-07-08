@@ -11,6 +11,8 @@ signal on_time_out()
 @onready var time_left_text: Label = %TimeLeftText
 @onready var time_left_progress_bar: ProgressBar = %TimeLeftProgressBar
 @onready var timeout_label: Label = %WinLabel
+@onready var viewport = %MinigameViewport
+@onready var minigame_view = %MinigameView
 
 var is_active = false
 
@@ -26,7 +28,8 @@ func _ready():
 func start_new_minigame():
 	current_minigame_index = randi() % minigames.size()
 	current_minigame_scene = minigames[current_minigame_index].instantiate()
-	add_child(current_minigame_scene)
+	viewport.add_child(current_minigame_scene)
+	minigame_view.show()
 
 func _process(_delta):
 	#time_left_text.text = "Time left: " + str(game_timer.time_left)
@@ -43,7 +46,6 @@ func _on_minigame_finished(values: MinigameValues, finished_text: String):
 	timeout_label.text = finished_text
 	timeout_label.show()
 	post_game_delay.start()
-	time_left_progress_bar.hide()
 	is_active = false
 
 func _on_minigame_started(time_limit: float):
@@ -61,5 +63,7 @@ func _on_game_timer_timeout():
 func _on_post_mini_game_delay_timeout():
 	current_minigame_scene.queue_free()
 	timeout_label.hide()
+	minigame_view.hide()
+	time_left_progress_bar.hide()
 
 
