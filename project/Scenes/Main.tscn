@@ -1,7 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk47b6bwiqaff"]
-
-[ext_resource type="PackedScene" uid="uid://c6a3toel8dyh8" path="res://Scenes/minigame_manager.tscn" id="1_sh7tn"]
+[gd_scene format=3 uid="uid://dk47b6bwiqaff"]
 
 [node name="Main" type="Node2D"]
-
-[node name="MinigameManager" parent="." instance=ExtResource("1_sh7tn")]

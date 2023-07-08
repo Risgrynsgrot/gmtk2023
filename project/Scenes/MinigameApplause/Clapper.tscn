@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvc3ih2x10gc"]
+
+[ext_resource type="Script" path="res://Scripts/Clapper.gd" id="1_huyn0"]
+[ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_pbqhl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1kia"]
+size = Vector2(88.5, 87)
+
+[node name="Clapper" type="Node2D" node_paths=PackedStringArray("right_hand")]
+script = ExtResource("1_huyn0")
+right_hand = NodePath("HandRight")
+
+[node name="HandLeft" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_pbqhl")
+
+[node name="LeftHandCollider" type="Area2D" parent="HandLeft" groups=["Hand"]]
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandLeft/LeftHandCollider"]
+position = Vector2(9.75, 7.5)
+shape = SubResource("RectangleShape2D_w1kia")
+
+[node name="HandRight" type="Sprite2D" parent="."]
+position = Vector2(200, 0)
+texture = ExtResource("2_pbqhl")
+
+[node name="RightHandCollider" type="Area2D" parent="HandRight" groups=["Hand"]]
+position = Vector2(-28, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandRight/RightHandCollider"]
+position = Vector2(19, 11)
+shape = SubResource("RectangleShape2D_w1kia")
+
+[connection signal="area_entered" from="HandLeft/LeftHandCollider" to="." method="_on_left_hand_collider_area_entered"]
