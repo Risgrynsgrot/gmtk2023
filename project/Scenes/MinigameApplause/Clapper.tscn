@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://jvc3ih2x10gc"]
+[gd_scene load_steps=5 format=3 uid="uid://jvc3ih2x10gc"]
 
 [ext_resource type="Script" path="res://Scripts/Clapper.gd" id="1_huyn0"]
 [ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_pbqhl"]
+[ext_resource type="PackedScene" uid="uid://pn5vq0eh5jql" path="res://Scenes/MinigameApplause/Clap.tscn" id="2_v1ue3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1kia"]
 size = Vector2(88.5, 87)
@@ -10,6 +11,7 @@ size = Vector2(88.5, 87)
 position = Vector2(481, 458)
 script = ExtResource("1_huyn0")
 right_hand = NodePath("HandRight")
+clap_particle = ExtResource("2_v1ue3")
 
 [node name="HandLeft" type="Sprite2D" parent="."]
 position = Vector2(0, 10)

@@ -20,9 +20,11 @@ func _process(_delta):
 	right_hand.global_position = get_global_mouse_position()
 
 
-
 func _on_left_hand_collider_area_entered(area:Area2D):
-	if area.is_in_group("hand"):
+	if area.is_in_group("Hand"):
 		minigame.emit_signal("on_clapped")
+		var clap = clap_particle.instantiate()
+		clap.global_position = global_position
+		add_sibling(clap)
 
 

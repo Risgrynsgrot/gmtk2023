@@ -5,15 +5,15 @@
 
 [node name="Clap" type="Node2D"]
 script = ExtResource("1_2b8a2")
-speed_range = Vector2(3, 30)
-rotation_speed_range = Vector2(3, 10)
-gravity = Vector2(0, 10)
+rotation_range = Vector2(-60, 60)
+min_offset_range = Vector2(50, 100)
+offset_range = Vector2(200, 300)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ld0is")
 
 [node name="Lifetime" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
+autostart = true
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
