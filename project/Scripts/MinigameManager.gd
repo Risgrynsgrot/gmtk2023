@@ -26,6 +26,7 @@ func _ready():
 	#start_new_minigame()
 
 func start_new_minigame():
+	print("starting minigame")
 	current_minigame_index = randi() % minigames.size()
 	current_minigame_scene = minigames[current_minigame_index].instantiate()
 	viewport.add_child(current_minigame_scene)
