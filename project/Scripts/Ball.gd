@@ -3,7 +3,9 @@ extends Node2D
 @export var ball_max_fly_time : float
 @export var max_distance : float = 50
 @export var current_distance : float = 20
-
+@export var max_scale_change : float = 1.5
+@export var time_to_lerp_distance_curve : Curve
+@export var time_to_scale_deformation_curve : Curve
 var swing_position : Vector2
 var landing_position : Vector2
 var current_fly_time : float = 0
@@ -16,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_key_pressed(KEY_SPACE) && !is_flying:
 		has_swung = true
 	
 	if has_swung:
@@ -26,11 +28,16 @@ func _process(delta):
 		
 	if is_flying:
 		current_fly_time += delta
-		var lerp_value = clamp(current_fly_time / ball_max_fly_time,0,1)
-		self.position = lerp(swing_position,landing_position,clamp(current_fly_time,0,1))
-		if lerp_value >= 1:
+		var lerp_value =  clamp(current_fly_time / ball_max_fly_time,0,1)
+		var curve_distance = time_to_lerp_distance_curve.sample(lerp_value)
+		self.position = lerp(swing_position,landing_position,curve_distance)
+		var scale_deformation = time_to_scale_deformation_curve.sample(curve_distance)
+		self.scale = Vector2( 1+scale_deformation, 1+scale_deformation);
+		if lerp_value > 0.95:
 			is_flying = false
 			swing_position = self.position
+			self.scale = Vector2(1,1)
+			current_fly_time = 0
 		
 	
 func _swing(current_distance:float):
