@@ -6,6 +6,7 @@
 [node name="MinigameApplause" type="Node2D" node_paths=PackedStringArray("progress_bar")]
 script = ExtResource("1_lics6")
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
+time_limit = 10.0
 
 [node name="Clapper" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_mi0v4")]
 position = Vector2(147, 109)

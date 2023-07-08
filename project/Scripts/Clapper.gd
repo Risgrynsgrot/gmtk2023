@@ -10,6 +10,8 @@ extends Node2D
 var move_speed: Vector2
 var rotation_speed: float
 
+var is_active = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
