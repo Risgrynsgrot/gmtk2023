@@ -62,7 +62,9 @@ func _on_game_timer_timeout():
 	on_time_out.emit()
 	
 func _on_post_mini_game_delay_timeout():
-	current_minigame_scene.queue_free()
+	if current_minigame_scene:
+		current_minigame_scene.queue_free()
+		
 	timeout_label.hide()
 	minigame_view.hide()
 	time_left_progress_bar.hide()
