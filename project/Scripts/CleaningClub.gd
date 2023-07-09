@@ -75,7 +75,8 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func hide_club():
 	if selected == false:
-		target_position = original_position + Vector2(0.0, 500.0)
+		var offset = Vector2(0.0, MinigameManager.viewport.get_visible_rect().size.y * 3)
+		target_position = original_position + offset
 	pass
 
 func select_club():
@@ -83,7 +84,7 @@ func select_club():
 	minigame.emit_signal("selected_club")
 	var offset = Vector2(0.0, MinigameManager.viewport.get_visible_rect().size.y * 0.2)
 	target_position = MinigameManager.viewport.get_visible_rect().get_center() + offset
-	target_scale = original_scale * Vector2(2.0, 2.0)
+	target_scale = original_scale * Vector2(3.0, 3.0)
 	if !clean.is_connected(cleaned_dirt):
 		clean.connect(cleaned_dirt)
 	for dirt_spot in dirt:
@@ -108,7 +109,8 @@ func _on_area_2d_area_entered(area):
 		return
 	if selected:
 		return
-	target_position = original_position + Vector2(0.0, -200.0)
+	var offset = Vector2(0.0, MinigameManager.viewport.get_visible_rect().size.y * -0.8)
+	target_position = original_position + offset
 	target_scale = original_scale * Vector2(1.1, 1.1)
 	hovered = true
 	pass # Replace with function body.
