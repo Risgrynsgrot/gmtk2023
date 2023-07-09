@@ -31,5 +31,5 @@ func _on_crash_zone_body_entered(body:Node2D):
 	var values = MinigameValues.new()
 	if !body.is_in_group("Car"):
 		return
-	MinigameManager.on_minigame_finished.emit(values, "Killing people is cringe!", false)
+	MinigameManager.on_minigame_finished.emit(values, "This is not a boat...", false)
 
