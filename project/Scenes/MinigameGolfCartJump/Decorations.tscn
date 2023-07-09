@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://doyaolopg7mw7"]
+
+[ext_resource type="Texture2D" uid="uid://cjpxqi767urdp" path="res://Sprites/Grass.PNG" id="1_riybw"]
+[ext_resource type="Texture2D" uid="uid://dy1xq8umx32it" path="res://Sprites/Sky.PNG" id="2_gp2ch"]
+[ext_resource type="Texture2D" uid="uid://ceaqwpdhgk8rs" path="res://Sprites/Cloud1.PNG" id="3_pecxy"]
+[ext_resource type="Texture2D" uid="uid://uljaka2rhh0b" path="res://Sprites/Cloud2.PNG" id="4_lvvs0"]
+[ext_resource type="Texture2D" uid="uid://clo7rfipwtcab" path="res://Sprites/Flag.PNG" id="5_7tqtd"]
+[ext_resource type="Texture2D" uid="uid://eimw8bxbappj" path="res://Sprites/SideviewHills.PNG" id="6_p4nit"]
+[ext_resource type="Texture2D" uid="uid://bpjof4w7wcemu" path="res://Sprites/SideviewPond.PNG" id="7_qd2x0"]
+[ext_resource type="Texture2D" uid="uid://cemr3ewvs3ptk" path="res://Sprites/Pine.PNG" id="8_liqne"]
+[ext_resource type="Texture2D" uid="uid://dwsmngi0bj63s" path="res://Sprites/Duck.PNG" id="9_wo4ff"]
+[ext_resource type="Texture2D" uid="uid://gtkkoy4ckn75" path="res://Sprites/LilyPads.PNG" id="10_kq6p5"]
+[ext_resource type="Texture2D" uid="uid://c0gv1a0ggd43w" path="res://Sprites/CatTails.PNG" id="11_gxvun"]
+[ext_resource type="Texture2D" uid="uid://c7j2tnqlue48b" path="res://Sprites/Sand2.PNG" id="12_dp6it"]
+[ext_resource type="Texture2D" uid="uid://b3i3xebvb3ukn" path="res://Sprites/CourseHard.PNG" id="13_l74hm"]
+
+[node name="Decorations" type="Node2D"]
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(512, 501.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("1_riybw")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(512, -238)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("2_gp2ch")
+
+[node name="Sky2" type="Sprite2D" parent="."]
+position = Vector2(512, 65.9427)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("2_gp2ch")
+
+[node name="Clouds" type="Node2D" parent="."]
+position = Vector2(-6, 275.943)
+
+[node name="Cloud1" type="Sprite2D" parent="Clouds"]
+position = Vector2(980.217, -210.589)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("3_pecxy")
+
+[node name="Cloud2" type="Sprite2D" parent="Clouds"]
+position = Vector2(928.217, -208.589)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("4_lvvs0")
+
+[node name="Cloud4" type="Sprite2D" parent="Clouds"]
+position = Vector2(188.217, -156.589)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("4_lvvs0")
+
+[node name="Cloud3" type="Sprite2D" parent="Clouds"]
+position = Vector2(40.2174, -130.589)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("3_pecxy")
+
+[node name="CatTails2" type="Sprite2D" parent="."]
+position = Vector2(804, 197.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("5_7tqtd")
+
+[node name="Hills" type="Sprite2D" parent="."]
+position = Vector2(504, 225.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("6_p4nit")
+
+[node name="Pond" type="Sprite2D" parent="."]
+position = Vector2(506, 275.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("7_qd2x0")
+
+[node name="Tree5" type="Sprite2D" parent="."]
+position = Vector2(934, 167.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("8_liqne")
+
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(984, 169.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("8_liqne")
+
+[node name="Tree4" type="Sprite2D" parent="."]
+position = Vector2(1016, 201.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("8_liqne")
+
+[node name="Duck" type="Sprite2D" parent="."]
+position = Vector2(644, 247.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("9_wo4ff")
+
+[node name="LilyPads" type="Sprite2D" parent="."]
+position = Vector2(388, 287.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("10_kq6p5")
+
+[node name="CatTails" type="Sprite2D" parent="."]
+position = Vector2(420, 199.943)
+scale = Vector2(0.536922, 0.536922)
+texture = ExtResource("11_gxvun")
+
+[node name="Sand" type="Sprite2D" parent="."]
+position = Vector2(842, 439.943)
+scale = Vector2(0.943784, 0.943784)
+texture = ExtResource("12_dp6it")
+
+[node name="Tree7" type="Sprite2D" parent="."]
+position = Vector2(880, 488)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_liqne")
+
+[node name="Tree8" type="Sprite2D" parent="."]
+position = Vector2(1025, 456)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_liqne")
+
+[node name="Tree9" type="Sprite2D" parent="."]
+position = Vector2(903, 549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_liqne")
+
+[node name="Tree6" type="Sprite2D" parent="."]
+position = Vector2(842, 820)
+scale = Vector2(1.07958, 1.07958)
+texture = ExtResource("13_l74hm")
