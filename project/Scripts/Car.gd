@@ -28,7 +28,7 @@ func _process(delta: float):
 		power = 0
 		reverse_power = 1
 
-	if Input.is_action_just_released("left_click"):
+	if Input.is_action_just_released("left_click") && !has_driven:
 		apply_force(Vector2(power, 0))
 		has_driven = true
 	drive_sound.pitch_scale = (power / max_power) * max_pitch + 1
@@ -36,7 +36,7 @@ func _process(delta: float):
 func _on_finish_line_body_entered(body:Node2D):
 	if !body.is_in_group("Car"):
 		return
-	if rotation_degrees < 80 || rotation_degrees > 100 || position.y < 340:
+	if rotation_degrees < 80 || rotation_degrees > 100 || global_position.y < %Floor.global_position.y - 40:
 		$CrashSound.play()
 		root_scene.car_finished.emit(false)
 		return
