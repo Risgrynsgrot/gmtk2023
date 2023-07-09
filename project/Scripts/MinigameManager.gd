@@ -2,10 +2,11 @@ extends Node
 
 signal on_minigame_finished(values: MinigameValues, finished_text: String, won: bool)
 signal on_minigame_started(time_limit: float)
+signal on_club_minigame_finished(value: float, finished_text: String)
 signal on_time_out()
 
 @export var minigames: Array[PackedScene]
-
+@export var club_minigame: PackedScene
 @onready var game_timer: Timer = $GameTimer
 @onready var post_game_delay: Timer = $PostMiniGameDelay
 @onready var time_left_text: Label = %TimeLeftText
@@ -31,6 +32,12 @@ func start_new_minigame():
 	current_minigame_scene = minigames[current_minigame_index].instantiate()
 	viewport.add_child(current_minigame_scene)
 	minigame_view.show()
+	
+func start_club_minigame():
+	print("starting club minigame")
+	current_minigame_scene = club_minigame.instantiate()
+	viewport.add_child(current_minigame_scene)
+	minigame_view.show()
 
 func _process(_delta):
 	#time_left_text.text = "Time left: " + str(game_timer.time_left)
@@ -51,6 +58,7 @@ func _on_minigame_finished(values: MinigameValues, finished_text: String, won: b
 	timeout_label.show()
 	post_game_delay.start()
 	is_active = false
+	
 
 func _on_minigame_started(time_limit: float):
 	current_time_limit = time_limit

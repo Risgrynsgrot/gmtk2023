@@ -25,14 +25,15 @@ texture = ExtResource("1_cexjr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caddy/RigidBody2D"]
 shape = SubResource("CircleShape2D_qgswr")
 
-[node name="Audience" type="Node2D" parent="." node_paths=PackedStringArray("audiance_members", "golf_ball", "player")]
+[node name="Audience" type="Node2D" parent="."]
 position = Vector2(0, 1)
 script = ExtResource("3_u2ds8")
-audiance_members = [NodePath("AudianceMember")]
-golf_ball = NodePath("../Ball")
-player = NodePath("../Caddy")
 audiance_ball_speed = 10.0
 audiance_avoid_speed = 100.0
+golf_ball = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(645, 352),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
+
+player = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(1095, 552),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":ExtResource("1_3o6i5"),"speed":3.0)
+
 
 [node name="AudianceMember" type="Node2D" parent="Audience"]
 position = Vector2(260, 312)
