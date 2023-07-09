@@ -16,7 +16,9 @@ clubs = [NodePath("Club"), NodePath("Club2"), NodePath("Club3"), NodePath("Club4
 cleaning_cloth = NodePath("CleaningCloth")
 
 [node name="Club" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
-position = Vector2(474, 764)
+position = Vector2(42, 439)
+scale = Vector2(0.3, 0.3)
+club_distance = 10.0
 
 [node name="Sprite2D" parent="MinigameCleanClubs/Club" index="0"]
 texture = ExtResource("3_0vev3")
@@ -46,7 +48,9 @@ position = Vector2(73, -435)
 rotation = 0.220551
 
 [node name="Club2" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
-position = Vector2(698, 765)
+position = Vector2(142, 440)
+scale = Vector2(0.3, 0.3)
+club_distance = 20.0
 
 [node name="Sprite2D" parent="MinigameCleanClubs/Club2" index="0"]
 texture = ExtResource("4_asbjj")
@@ -73,13 +77,19 @@ rotation = 0.845196
 position = Vector2(85, -268)
 
 [node name="Club3" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
-position = Vector2(926, 763)
+position = Vector2(242, 438)
+scale = Vector2(0.3, 0.3)
+club_distance = 30.0
 
 [node name="Club4" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
-position = Vector2(1161, 753)
+position = Vector2(342, 428)
+scale = Vector2(0.3, 0.3)
+club_distance = 40.0
 
 [node name="Club5" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
-position = Vector2(1380, 759)
+position = Vector2(442, 434)
+scale = Vector2(0.3, 0.3)
+club_distance = 50.0
 
 [node name="Sprite2D" parent="MinigameCleanClubs/Club5" index="0"]
 texture = ExtResource("5_64smj")
@@ -115,7 +125,8 @@ dirt_sprite = NodePath("../../Club4/Dirt4/DirtSprite")
 sparkle_sprite = NodePath("../../Club4/Dirt4/SparkleSprite")
 
 [node name="CleaningCloth" type="Node2D" parent="MinigameCleanClubs"]
-position = Vector2(614, 1003)
+position = Vector2(-171, 487)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("3_mjjio")
 
 [node name="Sprite2D" type="Sprite2D" parent="MinigameCleanClubs/CleaningCloth"]

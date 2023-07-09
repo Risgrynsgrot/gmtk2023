@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var club_distance : float
 @export var hover_speed: float = 10.0
 @export var dirt: Array[Node2D]
 var original_position: Vector2
@@ -86,6 +87,5 @@ func register_listener(emitter: Node):
 func cleaned_dirt():
 	dirt_cleaned_count += 1
 	if (dirt_cleaned_count >= dirt.size()):
-		var values = MinigameValues.new()
-		MinigameManager.on_minigame_finished.emit(values, "Just like new!", true)
+		MinigameManager.on_club_minigame_finished.emit(club_distance, "Just like new!")
 	pass
