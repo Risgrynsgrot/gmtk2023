@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7oejxy5ta3o7"]
+[gd_scene load_steps=11 format=3 uid="uid://7oejxy5ta3o7"]
 
 [ext_resource type="Script" path="res://Scripts/MinigameCleanClubs.gd" id="1_r2q8n"]
 [ext_resource type="PackedScene" uid="uid://cjkycjc2ey38b" path="res://Scenes/MinigameCleanClub/ClubMedium.tscn" id="2_2sv80"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccbrniw4qmdhh" path="res://Sprites/ClubMediumSmall.PNG" id="4_asbjj"]
 [ext_resource type="Texture2D" uid="uid://bl4l7xmhiahqp" path="res://Sprites/ClubBiggest.PNG" id="5_64smj"]
 [ext_resource type="Texture2D" uid="uid://d167tfiv1fyf3" path="res://Sprites/ClubBig.PNG" id="5_gmbnq"]
+[ext_resource type="PackedScene" uid="uid://doyaolopg7mw7" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="9_d52gu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uv5st"]
 radius = 5.0
@@ -16,6 +17,10 @@ radius = 5.0
 script = ExtResource("1_r2q8n")
 clubs = [NodePath("Club"), NodePath("Club2"), NodePath("Club3"), NodePath("Club4"), NodePath("Club5")]
 cleaning_cloth = NodePath("CleaningCloth")
+
+[node name="Decorations" parent="." instance=ExtResource("9_d52gu")]
+position = Vector2(3, 214)
+scale = Vector2(0.512385, 0.512385)
 
 [node name="Club" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(42, 439)
@@ -120,35 +125,27 @@ club_distance = 500.0
 [node name="Sprite2D" parent="Club5" index="0"]
 texture = ExtResource("5_64smj")
 
-[node name="Dirt" parent="Club5" index="2" node_paths=PackedStringArray("dirt_sprite", "sparkle_sprite")]
+[node name="Dirt" parent="Club5" index="2"]
 position = Vector2(84, -436)
-dirt_sprite = NodePath("../../Club4/Dirt/DirtSprite")
-sparkle_sprite = NodePath("../../Club4/Dirt/SparkleSprite")
 
 [node name="DirtSprite" parent="Club5/Dirt" index="0"]
 rotation = 0.475609
 
-[node name="Dirt2" parent="Club5" index="3" node_paths=PackedStringArray("dirt_sprite", "sparkle_sprite")]
+[node name="Dirt2" parent="Club5" index="3"]
 position = Vector2(-56, -426)
-dirt_sprite = NodePath("../../Club4/Dirt2/DirtSprite")
-sparkle_sprite = NodePath("../../Club4/Dirt2/SparkleSprite")
 
 [node name="DirtSprite" parent="Club5/Dirt2" index="0"]
 rotation = -1.42497
 
-[node name="Dirt3" parent="Club5" index="4" node_paths=PackedStringArray("dirt_sprite", "sparkle_sprite")]
+[node name="Dirt3" parent="Club5" index="4"]
 position = Vector2(-10, -325)
-dirt_sprite = NodePath("../../Club4/Dirt3/DirtSprite")
-sparkle_sprite = NodePath("../../Club4/Dirt3/SparkleSprite")
 
 [node name="DirtSprite" parent="Club5/Dirt3" index="0"]
 position = Vector2(-3, 2)
 rotation = -1.7558
 
-[node name="Dirt4" parent="Club5" index="5" node_paths=PackedStringArray("dirt_sprite", "sparkle_sprite")]
+[node name="Dirt4" parent="Club5" index="5"]
 position = Vector2(118, -285)
-dirt_sprite = NodePath("../../Club4/Dirt4/DirtSprite")
-sparkle_sprite = NodePath("../../Club4/Dirt4/SparkleSprite")
 
 [node name="CleaningCloth" type="Node2D" parent="."]
 position = Vector2(-171, 487)
