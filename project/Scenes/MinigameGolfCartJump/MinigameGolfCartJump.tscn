@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Car.gd" id="1_mtykk"]
 [ext_resource type="Script" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.gd" id="1_sbppe"]
 [ext_resource type="Texture2D" uid="uid://c1r4pfwb587pu" path="res://Sprites/GolfKart.PNG" id="4_v7iv7"]
-[ext_resource type="PackedScene" uid="uid://doyaolopg7mw7" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="4_y7h3h"]
+[ext_resource type="PackedScene" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="4_y7h3h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vsxs"]
 friction = 0.1
