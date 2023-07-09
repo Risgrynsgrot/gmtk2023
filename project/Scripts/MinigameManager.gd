@@ -1,6 +1,6 @@
 extends Node
 
-signal on_minigame_finished(values: MinigameValues, finished_text: String)
+signal on_minigame_finished(values: MinigameValues, finished_text: String, won: bool)
 signal on_minigame_started(time_limit: float)
 signal on_time_out()
 
