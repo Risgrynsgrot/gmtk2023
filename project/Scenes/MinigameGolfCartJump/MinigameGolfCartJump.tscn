@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://bineuva407ffc"]
+
+[ext_resource type="Script" path="res://Scripts/Car.gd" id="1_mtykk"]
+[ext_resource type="Script" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.gd" id="1_sbppe"]
+[ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_k1y1g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vsxs"]
+friction = 0.1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tco8p"]
+radius = 8.0
+height = 46.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pdsv8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iu07o"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1x0hm"]
+a = Vector2(102, 52)
+b = Vector2(-12, 114)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kfyv3"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bd2o2"]
+a = Vector2(102, 62)
+b = Vector2(102, 108)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lwld1"]
+a = Vector2(130, 38)
+b = Vector2(346, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ay4re"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rs240"]
+a = Vector2(236, 48)
+b = Vector2(236, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpaaf"]
+size = Vector2(318, 454)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvym1"]
+size = Vector2(420, 18)
+
+[node name="MinigameGolfCartJump" type="Node2D"]
+position = Vector2(0, 200)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_sbppe")
+time_limit = 15.0
+
+[node name="Car" type="RigidBody2D" parent="." groups=["Car"]]
+position = Vector2(49, 334)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_5vsxs")
+script = ExtResource("1_mtykk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+shape = SubResource("CapsuleShape2D_tco8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car"]
+position = Vector2(-26, -6)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k1y1g")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(102, 372)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_pdsv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(855, 304.25)
+scale = Vector2(1906, 609.5)
+texture = SubResource("PlaceholderTexture2D_iu07o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PowerBar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = 70.0
+offset_right = -31.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 100000.0
+fill_mode = 3
+
+[node name="Ramp" type="StaticBody2D" parent="."]
+position = Vector2(250, 258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp"]
+shape = SubResource("SegmentShape2D_1x0hm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ramp"]
+position = Vector2(45.7143, 95.0167)
+rotation = 2.6337
+scale = Vector2(138.14, 19.6877)
+texture = SubResource("PlaceholderTexture2D_kfyv3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ramp"]
+shape = SubResource("SegmentShape2D_bd2o2")
+
+[node name="Ramp2" type="StaticBody2D" parent="."]
+position = Vector2(556, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp2"]
+position = Vector2(102, 0)
+shape = SubResource("SegmentShape2D_lwld1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ramp2"]
+position = Vector2(333.407, 83.074)
+rotation = 0.284589
+scale = Vector2(205.194, 21.6837)
+texture = SubResource("PlaceholderTexture2D_ay4re")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ramp2"]
+shape = SubResource("SegmentShape2D_rs240")
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(1114, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(217, -81)
+shape = SubResource("RectangleShape2D_xpaaf")
+
+[node name="CrashZone" type="Area2D" parent="."]
+position = Vector2(324, 346)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrashZone"]
+position = Vector2(250, 15)
+shape = SubResource("RectangleShape2D_rvym1")
+
+[connection signal="body_entered" from="FinishLine" to="Car" method="_on_finish_line_body_entered"]
+[connection signal="body_entered" from="CrashZone" to="." method="_on_crash_zone_body_entered"]

@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/Clapper.gd" id="1_huyn0"]
 [ext_resource type="PackedScene" uid="uid://bfqqyi052p8lf" path="res://Scenes/MinigameApplause/Clap.tscn" id="2_71i3w"]
 [ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_pbqhl"]
+[ext_resource type="PackedScene" uid="uid://pn5vq0eh5jql" path="res://Scenes/MinigameApplause/Clap.tscn" id="2_v1ue3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1kia"]
 size = Vector2(88.5, 87)
 
 [node name="Clapper" type="Node2D" node_paths=PackedStringArray("right_hand")]
+position = Vector2(481, 458)
 script = ExtResource("1_huyn0")
 right_hand = NodePath("HandRight")
 clap_particle = ExtResource("2_71i3w")
@@ -26,7 +28,7 @@ position = Vector2(9.75, 7.5)
 shape = SubResource("RectangleShape2D_w1kia")
 
 [node name="HandRight" type="Sprite2D" parent="."]
-position = Vector2(200, 0)
+position = Vector2(408, 3)
 texture = ExtResource("2_pbqhl")
 
 [node name="RightHandCollider" type="Area2D" parent="HandRight" groups=["Hand"]]

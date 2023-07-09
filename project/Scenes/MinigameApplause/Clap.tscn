@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfqqyi052p8lf"]
+[gd_scene load_steps=3 format=3 uid="uid://pn5vq0eh5jql"]
 
 [ext_resource type="Script" path="res://Scripts/Clap.gd" id="1_2b8a2"]
 [ext_resource type="Texture2D" uid="uid://cdkkcjxyemmki" path="res://Sprites/clap.png" id="2_ld0is"]

@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjkycjc2ey38b"]
+[gd_scene load_steps=5 format=3 uid="uid://cjkycjc2ey38b"]
 
 [ext_resource type="Script" path="res://Scripts/CleaningClub.gd" id="1_57t6w"]
 [ext_resource type="Texture2D" uid="uid://cvu6t5paxuubi" path="res://Sprites/club_medium.png" id="1_nitxf"]
+[ext_resource type="PackedScene" uid="uid://dyd50defq0rny" path="res://Scenes/MinigameCleanClub/Dirt.tscn" id="3_ykexi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewy24"]
 size = Vector2(183, 949)
 
-[node name="Club" type="Node2D"]
+[node name="Club" type="Node2D" node_paths=PackedStringArray("dirt")]
 position = Vector2(209, 801)
 script = ExtResource("1_57t6w")
+dirt = [NodePath("Dirt"), NodePath("Dirt2"), NodePath("Dirt3"), NodePath("Dirt4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6, 3)
@@ -20,6 +22,18 @@ position = Vector2(-281, -781)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(342.5, 796.5)
 shape = SubResource("RectangleShape2D_ewy24")
+
+[node name="Dirt" parent="." instance=ExtResource("3_ykexi")]
+position = Vector2(-17, -411)
+
+[node name="Dirt2" parent="." instance=ExtResource("3_ykexi")]
+position = Vector2(135, -441)
+
+[node name="Dirt3" parent="." instance=ExtResource("3_ykexi")]
+position = Vector2(79, -347)
+
+[node name="Dirt4" parent="." instance=ExtResource("3_ykexi")]
+position = Vector2(-13, -302)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
