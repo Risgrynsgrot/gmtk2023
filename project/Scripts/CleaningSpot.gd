@@ -45,8 +45,8 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if !area.is_in_group("MouseCollider"):
 		return
-		if (cleaning_locked):
-			return
+	if (cleaning_locked):
+		return
 	if (collisions_until_clean > 0):
 		collisions_until_clean -= 1
 		if (collisions_until_clean <= 0):
