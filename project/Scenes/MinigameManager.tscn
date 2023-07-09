@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4cmku5owv4jy" path="res://Scenes/MinigameApplause/MinigameApplause.tscn" id="2_xedsu"]
 [ext_resource type="PackedScene" uid="uid://bineuva407ffc" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.tscn" id="3_tmww2"]
 [ext_resource type="PackedScene" uid="uid://7oejxy5ta3o7" path="res://Scenes/MinigameCleanClub/MinigameCleanClub.tscn" id="4_wxr6p"]
-[ext_resource type="Theme" uid="uid://ceqrweerp70hp" path="res://Main_theme.tres" id="4_yvypn"]
+[ext_resource type="Theme" uid="uid://t0o5edidqifi" path="res://Main_theme.tres" id="4_yvypn"]
 [ext_resource type="Script" path="res://Scenes/SubViewportContainer.gd" id="6_wtrr4"]
 
 [node name="MinigameManager" type="Node"]

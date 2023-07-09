@@ -81,7 +81,8 @@ func hide_club():
 func select_club():
 	selected = true
 	minigame.emit_signal("selected_club")
-	target_position = get_viewport_rect().get_center() + Vector2(0.0, 800)
+	var offset = Vector2(0.0, MinigameManager.viewport.get_visible_rect().size.y * 0.2)
+	target_position = MinigameManager.viewport.get_visible_rect().get_center() + offset
 	target_scale = original_scale * Vector2(2.0, 2.0)
 	if !clean.is_connected(cleaned_dirt):
 		clean.connect(cleaned_dirt)

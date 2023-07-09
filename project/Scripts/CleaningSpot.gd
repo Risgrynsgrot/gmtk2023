@@ -42,10 +42,11 @@ func _process(delta):
 		sparkle_sprite.scale = original_sparkle_scale * (sin(sparkle_timer * 10.0) + 1.0) * 0.5
 	pass
 
-func _on_area_2d_mouse_entered():
-	if (cleaning_locked):
+func _on_area_2d_area_entered(area):
+	if !area.is_in_group("MouseCollider"):
 		return
-	
+		if (cleaning_locked):
+			return
 	if (collisions_until_clean > 0):
 		collisions_until_clean -= 1
 		if (collisions_until_clean <= 0):
@@ -58,4 +59,4 @@ func _on_area_2d_mouse_entered():
 	
 	var clean_scale = float(collisions_until_clean)/float(start_clean_count)
 	target_dirt_scale = original_dirt_scale * clean_scale
-	pass
+	pass # Replace with function body.
