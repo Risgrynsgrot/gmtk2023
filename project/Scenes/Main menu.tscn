@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Main menu.gd" id="1_wdo4l"]
 [ext_resource type="Theme" uid="uid://t0o5edidqifi" path="res://Main_theme.tres" id="2_0ga4g"]
 [ext_resource type="Texture2D" uid="uid://br6bqqdok7376" path="res://Sprites/title.png" id="2_1r5hr"]
-[ext_resource type="PackedScene" uid="uid://bthxcgdpanopa" path="res://Scenes/GolfMapMockup.tscn" id="2_5rwf7"]
+[ext_resource type="PackedScene" uid="uid://b48r634n5kbvv" path="res://Scenes/GolfMapMockup.tscn" id="2_5rwf7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
