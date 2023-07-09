@@ -10,7 +10,7 @@ signal on_time_out()
 @onready var post_game_delay: Timer = $PostMiniGameDelay
 @onready var time_left_text: Label = %TimeLeftText
 @onready var time_left_progress_bar: ProgressBar = %TimeLeftProgressBar
-@onready var timeout_label: Label = %WinLabel
+@onready var timeout_label: RichTextLabel = %WinLabel
 @onready var viewport = %MinigameViewport
 @onready var minigame_view = %MinigameView
 
@@ -37,14 +37,18 @@ func _process(_delta):
 	if is_active:
 		time_left_progress_bar.value = game_timer.time_left
 
-func _on_minigame_finished(values: MinigameValues, finished_text: String):
+func _on_minigame_finished(values: MinigameValues, finished_text: String, won: bool):
 #instead of connecting here we connect for example the player, so they get the
 #values after you finish the minigame
 #use MinigameManager.on_minigame_finished.connect(YOURFUNCTION)
 #this will work anywhere because I added it to autoload
 	print("wind: " + str(values.wind))
 	print("confidence: " + str(values.confidence))
-	timeout_label.text = finished_text
+	if won:
+		timeout_label.text = "[wave amp=50.0 freq=5.0 connected=1][center]" + finished_text + "[/center][/wave]"
+	else:
+		timeout_label.text = "[wave amp=50.0 freq=5.0 connected=1][center]" + finished_text + "[/center][/wave]"
+	timeout_label.text = "[shake rate=40.0 level=10 connected=1][center]" + finished_text + "[/center][/shake]"
 	timeout_label.show()
 	post_game_delay.start()
 	is_active = false

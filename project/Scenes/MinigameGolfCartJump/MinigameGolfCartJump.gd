@@ -14,16 +14,16 @@ func _ready():
 func _on_time_out():
 	is_active = false
 	var values = MinigameValues.new()
-	MinigameManager.on_minigame_finished.emit(values, "You didn't even drive bro!")
+	MinigameManager.on_minigame_finished.emit(values, "You didn't even drive bro!", false)
 
 func _on_car_finished(won: bool):
 	is_active = false
 	var values = MinigameValues.new()
 	if won:
-		MinigameManager.on_minigame_finished.emit(values, "You are an epic driver!")
+		MinigameManager.on_minigame_finished.emit(values, "You are an epic driver!", true)
 		return
 
-	MinigameManager.on_minigame_finished.emit(values, "Do you even have a licence?")
+	MinigameManager.on_minigame_finished.emit(values, "Do you even have a licence?", false)
 
 
 
@@ -31,5 +31,5 @@ func _on_crash_zone_body_entered(body:Node2D):
 	var values = MinigameValues.new()
 	if !body.is_in_group("Car"):
 		return
-	MinigameManager.on_minigame_finished.emit(values, "Killing people is cringe!")
+	MinigameManager.on_minigame_finished.emit(values, "Killing people is cringe!", false)
 
