@@ -1,0 +1,394 @@
+[gd_scene load_steps=22 format=3 uid="uid://bthxcgdpanopa"]
+
+[ext_resource type="Script" path="res://Scripts/Hole.gd" id="1_s8sa7"]
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="3_3hgot"]
+[ext_resource type="Texture2D" uid="uid://cjpxqi767urdp" path="res://Sprites/Grass.PNG" id="5_kxsf5"]
+[ext_resource type="Texture2D" uid="uid://bha7m0wul0kdm" path="res://Sprites/CourseEasy.PNG" id="6_uloj4"]
+[ext_resource type="Texture2D" uid="uid://by7yvbcf3oqu3" path="res://Sprites/Tree1.PNG" id="7_fccb7"]
+[ext_resource type="Texture2D" uid="uid://bapjajhnmx3y6" path="res://Sprites/Tree2.PNG" id="8_1yget"]
+[ext_resource type="Texture2D" uid="uid://7u0nsvwjfjl4" path="res://Sprites/Sand1.PNG" id="9_dupxp"]
+[ext_resource type="Texture2D" uid="uid://cu2x1r2lhp171" path="res://Sprites/Tree3.PNG" id="9_uxpis"]
+[ext_resource type="Texture2D" uid="uid://cemr3ewvs3ptk" path="res://Sprites/Pine.PNG" id="10_tg1fd"]
+[ext_resource type="Texture2D" uid="uid://clo7rfipwtcab" path="res://Sprites/Flag.PNG" id="11_s6fhv"]
+[ext_resource type="Texture2D" uid="uid://ceaqwpdhgk8rs" path="res://Sprites/Cloud1.PNG" id="12_t6mar"]
+[ext_resource type="Texture2D" uid="uid://uljaka2rhh0b" path="res://Sprites/Cloud2.PNG" id="13_k1onn"]
+[ext_resource type="Texture2D" uid="uid://gtkkoy4ckn75" path="res://Sprites/LilyPads.PNG" id="13_mogvs"]
+[ext_resource type="Texture2D" uid="uid://bel7abwbke3au" path="res://Sprites/Sand3.PNG" id="14_a0int"]
+[ext_resource type="Texture2D" uid="uid://c0gv1a0ggd43w" path="res://Sprites/CatTails.PNG" id="14_x6mx7"]
+[ext_resource type="Texture2D" uid="uid://dwsmngi0bj63s" path="res://Sprites/Duck.PNG" id="14_yewur"]
+[ext_resource type="Texture2D" uid="uid://bjdwgucowuca4" path="res://Sprites/Water2.PNG" id="15_5wm4q"]
+[ext_resource type="Texture2D" uid="uid://bg6a0mwe1m8ur" path="res://Sprites/Water1.PNG" id="16_lnfe8"]
+[ext_resource type="Texture2D" uid="uid://b7d0786kjrdfa" path="res://Sprites/BallSmall.PNG" id="20_hcago"]
+
+[sub_resource type="Curve" id="Curve_xqtuq"]
+_data = [Vector2(0, 0), 0.0, 2.11435, 0, 0, Vector2(0.5, 0.7), 0.833992, 0.833992, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_sfo6b"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.767773, 0.195729), -1.50178, -1.50178, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="GolfMap" type="Node2D"]
+position = Vector2(640, 373)
+rotation = 1.5708
+scale = Vector2(1.004, 1)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(166.334, -315.001)
+
+[node name="Grass" type="Sprite2D" parent="Background"]
+position = Vector2(6.10352e-05, 0)
+rotation = -1.5708
+texture = ExtResource("5_kxsf5")
+
+[node name="MainPath" type="Sprite2D" parent="Background"]
+rotation = -1.5708
+texture = ExtResource("6_uloj4")
+
+[node name="Flag" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(-399.266, -741.519)
+rotation = -1.5708
+texture = ExtResource("11_s6fhv")
+
+[node name="Sand3" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(180.397, -603.015)
+rotation = -1.5708
+texture = ExtResource("14_a0int")
+
+[node name="Sand4" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(-577.805, -129.914)
+rotation = -1.5708
+texture = ExtResource("9_dupxp")
+
+[node name="Water2" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(-52.8116, -822.016)
+rotation = -1.5708
+texture = ExtResource("15_5wm4q")
+
+[node name="Water1" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(272.005, -104.119)
+rotation = -1.5708
+texture = ExtResource("16_lnfe8")
+
+[node name="LilyPads" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(295.911, -136.87)
+rotation = -1.5708
+texture = ExtResource("13_mogvs")
+
+[node name="Duck" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(-70.1864, -779.43)
+rotation = -1.5708
+texture = ExtResource("14_yewur")
+
+[node name="CatTails" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(-156.723, -889.559)
+rotation = -1.5708
+texture = ExtResource("14_x6mx7")
+
+[node name="CatTails2" type="Sprite2D" parent="Background"]
+y_sort_enabled = true
+position = Vector2(271.357, -0.840332)
+rotation = -1.5708
+texture = ExtResource("14_x6mx7")
+
+[node name="PineTrees" type="Node2D" parent="Background"]
+
+[node name="PineGroup2" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-444.22, 972.002)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup2"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup2"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup2"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup3" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-433.264, 780.002)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup3"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup3"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup3"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup4" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-439.241, 592.002)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup4"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup4"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup4"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup5" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-260.953, 966.001)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup5"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup5"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup5"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup6" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-260.953, 767.001)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup6"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup6"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup6"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup7" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-176.293, 584.001)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup7"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup7"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup7"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup8" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(-13.9404, 1043)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup8"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup8"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup8"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="PineGroup" type="Node2D" parent="Background/PineTrees"]
+position = Vector2(22.9114, 861)
+
+[node name="Pine" type="Sprite2D" parent="Background/PineTrees/PineGroup"]
+y_sort_enabled = true
+position = Vector2(-53.8681, 20.045)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine2" type="Sprite2D" parent="Background/PineTrees/PineGroup"]
+y_sort_enabled = true
+position = Vector2(-92.7255, -94.1587)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Pine3" type="Sprite2D" parent="Background/PineTrees/PineGroup"]
+y_sort_enabled = true
+position = Vector2(-0.464539, -49.5934)
+rotation = -1.5708
+texture = ExtResource("10_tg1fd")
+
+[node name="Trees" type="Node2D" parent="Background"]
+
+[node name="TreeGroup" type="Node2D" parent="Background/Trees"]
+position = Vector2(441.232, -857.002)
+
+[node name="Tree1" type="Sprite2D" parent="Background/Trees/TreeGroup"]
+y_sort_enabled = true
+position = Vector2(-141.977, -11.8433)
+rotation = -1.5708
+texture = ExtResource("7_fccb7")
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees/TreeGroup"]
+y_sort_enabled = true
+position = Vector2(-94.2078, 68.1895)
+rotation = -1.5708
+texture = ExtResource("8_1yget")
+
+[node name="Tree3" type="Sprite2D" parent="Background/Trees/TreeGroup"]
+y_sort_enabled = true
+position = Vector2(-28.9335, -5.55731)
+rotation = -1.5708
+texture = ExtResource("9_uxpis")
+
+[node name="TreeGroup3" type="Node2D" parent="Background/Trees"]
+position = Vector2(588.646, 129.998)
+
+[node name="Tree1" type="Sprite2D" parent="Background/Trees/TreeGroup3"]
+y_sort_enabled = true
+position = Vector2(-141.977, -11.8433)
+rotation = -1.5708
+texture = ExtResource("7_fccb7")
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees/TreeGroup3"]
+y_sort_enabled = true
+position = Vector2(-94.2078, 68.1895)
+rotation = -1.5708
+texture = ExtResource("8_1yget")
+
+[node name="Tree3" type="Sprite2D" parent="Background/Trees/TreeGroup3"]
+y_sort_enabled = true
+position = Vector2(-28.9335, -5.55731)
+rotation = -1.5708
+texture = ExtResource("9_uxpis")
+
+[node name="TreeGroup2" type="Node2D" parent="Background/Trees"]
+position = Vector2(-406.374, 205.001)
+
+[node name="Tree1" type="Sprite2D" parent="Background/Trees/TreeGroup2"]
+y_sort_enabled = true
+position = Vector2(-141.977, -11.8433)
+rotation = -1.5708
+texture = ExtResource("7_fccb7")
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees/TreeGroup2"]
+y_sort_enabled = true
+position = Vector2(-94.2078, 68.1895)
+rotation = -1.5708
+texture = ExtResource("8_1yget")
+
+[node name="Tree3" type="Sprite2D" parent="Background/Trees/TreeGroup2"]
+y_sort_enabled = true
+position = Vector2(-28.9335, -5.55731)
+rotation = -1.5708
+texture = ExtResource("9_uxpis")
+
+[node name="Clouds" type="Node2D" parent="Background"]
+
+[node name="Cloud1" type="Sprite2D" parent="Background/Clouds"]
+y_sort_enabled = true
+position = Vector2(-496.472, 687.412)
+rotation = -1.5708
+texture = ExtResource("12_t6mar")
+
+[node name="Cloud2" type="Sprite2D" parent="Background/Clouds"]
+y_sort_enabled = true
+position = Vector2(-424.463, 851.092)
+rotation = -1.5708
+texture = ExtResource("13_k1onn")
+
+[node name="Cloud4" type="Sprite2D" parent="Background/Clouds"]
+y_sort_enabled = true
+position = Vector2(468.38, -986.544)
+rotation = -1.5708
+texture = ExtResource("13_k1onn")
+
+[node name="Cloud3" type="Sprite2D" parent="Background/Clouds"]
+y_sort_enabled = true
+position = Vector2(493.021, -553.439)
+rotation = -1.5708
+texture = ExtResource("12_t6mar")
+
+[node name="Hole Test" type="Node2D" parent="." node_paths=PackedStringArray("some_aim_markers", "start_marker")]
+position = Vector2(-178.291, -1037)
+script = ExtResource("1_s8sa7")
+some_aim_markers = [NodePath("Middle Position 2"), NodePath("Middle Position 3"), NodePath("End Position")]
+start_marker = NodePath("Start Position")
+
+[node name="Start Position" type="Marker2D" parent="Hole Test"]
+position = Vector2(678.332, 1440)
+
+[node name="Middle Position 2" type="Marker2D" parent="Hole Test"]
+position = Vector2(482.115, 1033)
+
+[node name="Middle Position 3" type="Marker2D" parent="Hole Test"]
+position = Vector2(229.125, 517.999)
+
+[node name="End Position" type="Marker2D" parent="Hole Test"]
+position = Vector2(1.03589, -2.00012)
+
+[node name="Ball" type="Node2D" parent="." node_paths=PackedStringArray("hole")]
+position = Vector2(497.014, 405.998)
+script = ExtResource("3_3hgot")
+hole = NodePath("../Hole Test")
+ball_max_fly_time = 4.0
+max_distance = 1000.0
+current_distance = 500.0
+time_to_lerp_distance_curve = SubResource("Curve_xqtuq")
+time_to_scale_deformation_curve = SubResource("Curve_sfo6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(-17.9284, -1.99994)
+texture = ExtResource("20_hcago")
