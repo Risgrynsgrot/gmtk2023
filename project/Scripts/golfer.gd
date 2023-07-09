@@ -40,7 +40,7 @@ func _on_map_change(index: int):
 		map_changed = true
 
 
-func _on_minigame_finished(values: MinigameValues, _finished_text: String):
+func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won: bool):
 	my_values.wind += values.wind
 	my_values.confidence += values.confidence
 
