@@ -58,6 +58,7 @@ physics_material_override = SubResource("PhysicsMaterial_5vsxs")
 script = ExtResource("1_mtykk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+position = Vector2(-2.00006, -20)
 shape = SubResource("CapsuleShape2D_tco8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Car"]
