@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jvc3ih2x10gc"]
+[gd_scene load_steps=6 format=3 uid="uid://jvc3ih2x10gc"]
 
 [ext_resource type="Script" path="res://Scripts/Clapper.gd" id="1_huyn0"]
 [ext_resource type="PackedScene" uid="uid://bfqqyi052p8lf" path="res://Scenes/MinigameApplause/Clap.tscn" id="2_71i3w"]
-[ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_pbqhl"]
+[ext_resource type="Texture2D" uid="uid://cpqlip67tv1hr" path="res://Sprites/HandLeft.png" id="3_0cnft"]
+[ext_resource type="Texture2D" uid="uid://ricj47uim7mi" path="res://Sprites/HandRight.png" id="4_ycmr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1kia"]
 size = Vector2(88.5, 87)
@@ -14,8 +15,9 @@ clap_particle = ExtResource("2_71i3w")
 
 [node name="HandLeft" type="Sprite2D" parent="."]
 position = Vector2(0, 10)
-scale = Vector2(-1, 1)
-texture = ExtResource("2_pbqhl")
+rotation = 0.0156746
+scale = Vector2(0.105935, 0.105935)
+texture = ExtResource("3_0cnft")
 
 [node name="LeftHandCollider" type="Area2D" parent="HandLeft" groups=["Hand"]]
 rotation = 3.14159
@@ -23,14 +25,17 @@ scale = Vector2(1, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandLeft/LeftHandCollider"]
 position = Vector2(9.75, 7.5)
+scale = Vector2(8.80306, 8.80306)
 shape = SubResource("RectangleShape2D_w1kia")
 
 [node name="HandRight" type="Sprite2D" parent="."]
 position = Vector2(200, 0)
-texture = ExtResource("2_pbqhl")
+scale = Vector2(0.0949015, 0.0949015)
+texture = ExtResource("4_ycmr6")
 
 [node name="RightHandCollider" type="Area2D" parent="HandRight" groups=["Hand"]]
-position = Vector2(-28, -3)
+position = Vector2(-189.67, -136.984)
+scale = Vector2(10.3632, 10.3632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandRight/RightHandCollider"]
 position = Vector2(19, 11)

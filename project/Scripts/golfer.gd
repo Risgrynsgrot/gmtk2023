@@ -2,7 +2,10 @@ extends Node2D
 
 signal on_map_change(index: int)
 signal on_change_club(value: float)
+
 @export var maps: Array[PackedScene]
+
+@onready var rolf = %RolfContainer
 
 var ball: Node2D
 var minigame_values: MinigameValues
@@ -51,6 +54,8 @@ func _on_club_minigame_finished(club_minigame_value: float, _finished_text: Stri
 func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won: bool):
 	minigame_values.wind += values.wind
 	minigame_values.confidence += values.confidence
+	rolf.show_face(rolf.rolf_faces.HAPPY)
+
 
 func _on_minigame_closed():
 	$AfterMinigameDelay.start()
