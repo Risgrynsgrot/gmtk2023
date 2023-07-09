@@ -31,8 +31,7 @@ func _process(delta: float):
 	if Input.is_action_just_released("left_click"):
 		apply_force(Vector2(power, 0))
 		has_driven = true
-	drive_sound.pitch_scale = (power / max_power) * max_pitch
-
+	drive_sound.pitch_scale = (power / max_power) * max_pitch + 1
 
 func _on_finish_line_body_entered(body:Node2D):
 	if !body.is_in_group("Car"):
