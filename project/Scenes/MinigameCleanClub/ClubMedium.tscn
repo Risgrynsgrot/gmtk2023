@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewy24"]
 size = Vector2(183, 949)
 
-[node name="Club" type="Node2D" node_paths=PackedStringArray("dirt")]
+[node name="Club" type="Node2D" node_paths=PackedStringArray("dirt") groups=["Club"]]
 position = Vector2(209, 801)
 script = ExtResource("1_57t6w")
 dirt = [NodePath("Dirt"), NodePath("Dirt2"), NodePath("Dirt3"), NodePath("Dirt4")]
@@ -58,6 +58,8 @@ rotation = 2.97577
 scale = Vector2(0.540097, 0.521892)
 texture = ExtResource("4_jxdky")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

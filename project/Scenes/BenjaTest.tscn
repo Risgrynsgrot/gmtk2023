@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0tvnb7kmd65x"]
+[gd_scene load_steps=3 format=3 uid="uid://c0tvnb7kmd65x"]
 
 [ext_resource type="Script" path="res://Scenes/BenjaTest.gd" id="1_wb126"]
+[ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_wf4tc"]
 
 [node name="BenjaTest" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_wb126")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("2_wf4tc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(5, 20)
+texture = ExtResource("2_wf4tc")
+offset = Vector2(2, -42)

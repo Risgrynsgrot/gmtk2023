@@ -28,7 +28,6 @@ func _process(delta):
 		is_flying = true
 		
 	if is_flying:
-		print("flying")
 		current_fly_time += delta
 		var lerp_value =  clamp(current_fly_time / ball_max_fly_time,0,1)
 		var curve_distance = time_to_lerp_distance_curve.sample(lerp_value)

@@ -14,6 +14,8 @@ var target_scale: Vector2
 
 var dirt_cleaned_count: int
 
+@onready var collider: CollisionShape2D = $Area2D/CollisionShape2D
+
 signal clean
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +32,25 @@ func _ready():
 func _process(delta):
 	move_towards(target_position, delta)
 	scale_towards(target_scale, delta)
-	pass
+	if Input.is_action_just_pressed("left_click") && hovered:
+		select_club()
+	#var mouse_pos = get_viewport().get_mouse_position()
+	#print(collided)
+	#if !collided:
+	#	return
+	#if collided.get_parent() == self:
+	#	if selected:
+	#		return
+	#	target_position = original_position + Vector2(0.0, -200.0)
+	#	target_scale = original_scale * Vector2(1.1, 1.1)
+	#	pass # Replace with function body.
+
+	#if collided.get_parent() != self:
+	#	if selected:
+	#		return
+	#	target_position = original_position
+	#	target_scale = original_scale
+	#	hovered = false
 
 func move_towards(target: Vector2, delta):
 	var diff = target - self.position
@@ -43,18 +63,8 @@ func scale_towards(target: Vector2, delta):
 	pass
 
 func _on_area_2d_mouse_entered():
-	if selected:
-		return
-	target_position = original_position + Vector2(0.0, -200.0)
-	target_scale = original_scale * Vector2(1.1, 1.1)
-	pass # Replace with function body.
-
+	pass
 func _on_area_2d_mouse_exited():
-	if selected:
-		return
-	target_position = original_position
-	target_scale = original_scale
-	hovered = false
 	pass # Replace with function body.
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
@@ -73,7 +83,8 @@ func select_club():
 	minigame.emit_signal("selected_club")
 	target_position = get_viewport_rect().get_center() + Vector2(0.0, 800)
 	target_scale = original_scale * Vector2(2.0, 2.0)
-	connect("clean", cleaned_dirt)
+	if !clean.is_connected(cleaned_dirt):
+		clean.connect(cleaned_dirt)
 	for dirt_spot in dirt:
 		dirt_spot.cleaning_locked = false
 		dirt_spot.golf_club = self
@@ -89,3 +100,24 @@ func cleaned_dirt():
 	if (dirt_cleaned_count >= dirt.size()):
 		MinigameManager.on_club_minigame_finished.emit(club_distance, "Just like new!")
 	pass
+
+
+func _on_area_2d_area_entered(area):
+	if !area.is_in_group("MouseCollider"):
+		return
+	if selected:
+		return
+	target_position = original_position + Vector2(0.0, -200.0)
+	target_scale = original_scale * Vector2(1.1, 1.1)
+	hovered = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	if !area.is_in_group("MouseCollider"):
+		return
+	if selected:
+		return
+	target_position = original_position
+	target_scale = original_scale
+	hovered = false
