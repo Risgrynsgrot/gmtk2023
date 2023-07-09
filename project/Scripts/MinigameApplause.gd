@@ -26,4 +26,4 @@ func _on_clapped():
 func _on_time_out():
 	is_active = false
 	var values = MinigameValues.new()
-	MinigameManager.on_minigame_finished.emit(values, "Clappers!")
+	MinigameManager.on_minigame_finished.emit(values, "Clappers!", true)
