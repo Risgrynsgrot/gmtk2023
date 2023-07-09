@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b48r634n5kbvv"]
+[gd_scene load_steps=24 format=3 uid="uid://bthxcgdpanopa"]
 
 [ext_resource type="Script" path="res://Scripts/Hole.gd" id="1_s8sa7"]
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="3_3hgot"]
@@ -365,22 +365,21 @@ rotation = -1.5708
 texture = ExtResource("12_t6mar")
 
 [node name="Hole Test" type="Node2D" parent="." node_paths=PackedStringArray("some_aim_markers", "start_marker")]
-position = Vector2(-178.291, -1037)
 script = ExtResource("1_s8sa7")
 some_aim_markers = [NodePath("Middle Position 2"), NodePath("Middle Position 3"), NodePath("End Position")]
 start_marker = NodePath("Start Position")
 
 [node name="Start Position" type="Marker2D" parent="Hole Test"]
-position = Vector2(678.332, 1440)
+position = Vector2(507.969, 388.998)
 
 [node name="Middle Position 2" type="Marker2D" parent="Hole Test"]
-position = Vector2(482.115, 1033)
+position = Vector2(112.548, -381)
 
 [node name="Middle Position 3" type="Marker2D" parent="Hole Test"]
-position = Vector2(229.125, 517.999)
+position = Vector2(-16.9347, -666)
 
 [node name="End Position" type="Marker2D" parent="Hole Test"]
-position = Vector2(192.994, -1682)
+position = Vector2(-186.259, -1040)
 
 [node name="Area2D" type="Area2D" parent="Hole Test/End Position"]
 
