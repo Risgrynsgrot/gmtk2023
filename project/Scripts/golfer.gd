@@ -51,10 +51,13 @@ func _on_club_minigame_finished(club_minigame_value: float, _finished_text: Stri
 	ball.current_distance = club_value
 	ball.do_swing()
 
-func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won: bool):
+func _on_minigame_finished(values: MinigameValues, _finished_text: String, won: bool):
 	minigame_values.wind += values.wind
 	minigame_values.confidence += values.confidence
-	rolf.show_face(rolf.rolf_faces.HAPPY)
+	if won:
+		rolf.show_face(rolf.rolf_faces.HAPPY)
+	else:
+		rolf.show_face(rolf.rolf_faces.ANGRY)
 
 
 func _on_minigame_closed():

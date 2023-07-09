@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dynarkdtg1rnq"]
 
 [ext_resource type="Script" path="res://Scripts/golfer.gd" id="1_2pqaj"]
-[ext_resource type="PackedScene" uid="uid://bthxcgdpanopa" path="res://Scenes/GolfMapMockup.tscn" id="2_c4efo"]
+[ext_resource type="PackedScene" uid="uid://b48r634n5kbvv" path="res://Scenes/GolfMapMockup.tscn" id="2_c4efo"]
 [ext_resource type="PackedScene" uid="uid://c8xe45jiivosc" path="res://Scenes/RolfView/RolfContainer.tscn" id="3_txf42"]
 
 [sub_resource type="Animation" id="Animation_kxljv"]
@@ -52,17 +52,18 @@ wait_time = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RolfPanel" type="Panel" parent="CanvasLayer"]
+[node name="RolfPanel" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_right = 676.0
 offset_bottom = 596.0
 scale = Vector2(0.69, 0.69)
 
 [node name="RolfContainer" parent="CanvasLayer/RolfPanel" instance=ExtResource("3_txf42")]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
