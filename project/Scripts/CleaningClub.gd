@@ -83,7 +83,8 @@ func select_club():
 	minigame.emit_signal("selected_club")
 	target_position = get_viewport_rect().get_center() + Vector2(0.0, 800)
 	target_scale = original_scale * Vector2(2.0, 2.0)
-	connect("clean", cleaned_dirt)
+	if !clean.is_connected(cleaned_dirt):
+		clean.connect(cleaned_dirt)
 	for dirt_spot in dirt:
 		dirt_spot.cleaning_locked = false
 		dirt_spot.golf_club = self
