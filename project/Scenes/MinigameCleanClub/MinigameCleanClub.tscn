@@ -20,6 +20,7 @@ cleaning_cloth = NodePath("CleaningCloth")
 [node name="Club" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(42, 439)
 scale = Vector2(0.3, 0.3)
+club_distance = 100.0
 
 [node name="Sprite2D" parent="Club" index="0"]
 texture = ExtResource("3_0vev3")
@@ -51,6 +52,7 @@ rotation = 0.220551
 [node name="Club2" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(142, 440)
 scale = Vector2(0.3, 0.3)
+club_distance = 200.0
 
 [node name="Sprite2D" parent="Club2" index="0"]
 texture = ExtResource("4_asbjj")
@@ -79,10 +81,12 @@ position = Vector2(85, -268)
 [node name="Club3" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(242, 438)
 scale = Vector2(0.3, 0.3)
+club_distance = 300.0
 
 [node name="Club4" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(342, 428)
 scale = Vector2(0.3, 0.3)
+club_distance = 400.0
 
 [node name="Sprite2D" parent="Club4" index="0"]
 texture = ExtResource("5_gmbnq")
@@ -111,6 +115,7 @@ position = Vector2(-40, -366.667)
 [node name="Club5" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(442, 434)
 scale = Vector2(0.3, 0.3)
+club_distance = 500.0
 
 [node name="Sprite2D" parent="Club5" index="0"]
 texture = ExtResource("5_64smj")
