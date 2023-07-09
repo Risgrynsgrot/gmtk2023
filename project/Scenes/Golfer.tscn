@@ -6,3 +6,12 @@
 [node name="Golfer" type="Node2D"]
 script = ExtResource("1_2pqaj")
 maps = Array[PackedScene]([ExtResource("2_rm8kx")])
+
+[node name="StartGameTimerDelay" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AfterMinigameDelay" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="StartGameTimerDelay" to="." method="_on_start_game_timer_delay_timeout"]
+[connection signal="timeout" from="AfterMinigameDelay" to="." method="_on_after_minigame_delay_timeout"]

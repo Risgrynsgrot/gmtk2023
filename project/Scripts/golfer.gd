@@ -27,10 +27,10 @@ func handle_map_changed():
 	var current_scene = get_tree().root.get_child(get_tree().root.get_child_count() - 1)
 	ball = current_scene.get_node("Ball")
 	ball.landed.connect(_on_ball_landed)
-
-	#temp
-	ball.do_swing()
+	$StartGameTimerDelay.start()
 	
+func _swing_club_at_ball():
+	ball.do_swing()
 
 func _on_map_change(index: int):
 	var result = get_tree().change_scene_to_file(maps[index].resource_path)
@@ -44,7 +44,6 @@ func _on_map_change(index: int):
 func _choose_club():
 	MinigameManager.start_club_minigame()
 
-	
 func _on_club_minigame_finished(club_minigame_value: float, _finished_text: String):
 	club_value = club_minigame_value
 	ball.current_distance = club_value
@@ -55,8 +54,17 @@ func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won:
 	minigame_values.confidence += values.confidence
 
 func _on_minigame_closed():
-	_choose_club()
+	$AfterMinigameDelay.start()
 
 func _on_ball_landed():
 	print("landed event")
 	MinigameManager.start_new_minigame()
+
+func _on_start_game_timer_delay_timeout():
+# this should instead be choose club which then should trigger the swing club function
+	_swing_club_at_ball()
+	$StartGameTimerDelay.stop()
+
+func _on_after_minigame_delay_timeout():
+	_choose_club()
+	$AfterMinigameDelay.stop()
