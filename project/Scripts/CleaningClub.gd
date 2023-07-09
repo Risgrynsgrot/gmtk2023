@@ -86,6 +86,6 @@ func register_listener(emitter: Node):
 func cleaned_dirt():
 	dirt_cleaned_count += 1
 	if (dirt_cleaned_count >= dirt.size()):
-		#TODO: send minigame finsihed
-		print("finished cleaning!")
+		var values = MinigameValues.new()
+		MinigameManager.on_minigame_finished.emit(values, "Just like new!", true)
 	pass
