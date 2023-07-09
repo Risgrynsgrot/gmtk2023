@@ -66,7 +66,7 @@ func _on_ball_landed():
 
 func _on_start_game_timer_delay_timeout():
 # this should instead be choose club which then should trigger the swing club function
-	_swing_club_at_ball()
+	_choose_club()
 	$StartGameTimerDelay.stop()
 
 func _on_after_minigame_delay_timeout():

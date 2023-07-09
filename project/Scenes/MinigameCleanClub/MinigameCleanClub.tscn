@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7oejxy5ta3o7"]
+[gd_scene load_steps=10 format=3 uid="uid://7oejxy5ta3o7"]
 
 [ext_resource type="Script" path="res://Scripts/MinigameCleanClubs.gd" id="1_r2q8n"]
 [ext_resource type="PackedScene" uid="uid://cjkycjc2ey38b" path="res://Scenes/MinigameCleanClub/ClubMedium.tscn" id="2_2sv80"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ccbrniw4qmdhh" path="res://Sprites/ClubMediumSmall.PNG" id="4_asbjj"]
 [ext_resource type="Texture2D" uid="uid://bl4l7xmhiahqp" path="res://Sprites/ClubBiggest.PNG" id="5_64smj"]
 [ext_resource type="Texture2D" uid="uid://d167tfiv1fyf3" path="res://Sprites/ClubBig.PNG" id="5_gmbnq"]
-[ext_resource type="PackedScene" uid="uid://doyaolopg7mw7" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="9_d52gu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uv5st"]
 radius = 5.0
@@ -18,14 +17,10 @@ script = ExtResource("1_r2q8n")
 clubs = [NodePath("Club"), NodePath("Club2"), NodePath("Club3"), NodePath("Club4"), NodePath("Club5")]
 cleaning_cloth = NodePath("CleaningCloth")
 
-[node name="Decorations" parent="." instance=ExtResource("9_d52gu")]
-position = Vector2(1, 214)
-scale = Vector2(0.516368, 0.516368)
-
 [node name="Club" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(42, 439)
 scale = Vector2(0.3, 0.3)
-club_distance = 1.0
+club_distance = 100.0
 
 [node name="Sprite2D" parent="Club" index="0"]
 texture = ExtResource("3_0vev3")
@@ -57,7 +52,7 @@ rotation = 0.220551
 [node name="Club2" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(142, 440)
 scale = Vector2(0.3, 0.3)
-club_distance = 2.0
+club_distance = 200.0
 
 [node name="Sprite2D" parent="Club2" index="0"]
 texture = ExtResource("4_asbjj")
@@ -86,12 +81,12 @@ position = Vector2(85, -268)
 [node name="Club3" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(242, 438)
 scale = Vector2(0.3, 0.3)
-club_distance = 3.0
+club_distance = 300.0
 
 [node name="Club4" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(342, 428)
 scale = Vector2(0.3, 0.3)
-club_distance = 4.0
+club_distance = 400.0
 
 [node name="Sprite2D" parent="Club4" index="0"]
 texture = ExtResource("5_gmbnq")
@@ -120,7 +115,7 @@ position = Vector2(-40, -366.667)
 [node name="Club5" parent="." instance=ExtResource("2_2sv80")]
 position = Vector2(442, 434)
 scale = Vector2(0.3, 0.3)
-club_distance = 5.0
+club_distance = 500.0
 
 [node name="Sprite2D" parent="Club5" index="0"]
 texture = ExtResource("5_64smj")
