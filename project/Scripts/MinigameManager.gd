@@ -24,6 +24,7 @@ var current_minigame_scene: Node
 func _ready():
 	on_minigame_finished.connect(_on_minigame_finished)
 	on_minigame_started.connect(_on_minigame_started)
+	on_club_minigame_finished.connect(_on_club_minigame_finished)
 	#start_new_minigame()
 
 func start_new_minigame():
@@ -80,4 +81,7 @@ func _on_post_mini_game_delay_timeout():
 	minigame_view.hide()
 	time_left_progress_bar.hide()
 
-
+func _on_club_minigame_finished(value,string):
+	minigame_view.hide()
+	if current_minigame_scene:
+		current_minigame_scene.queue_free()
