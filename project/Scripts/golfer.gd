@@ -13,7 +13,6 @@ var map_changed: bool = false
 func _ready():
 	minigame_values = MinigameValues.new()
 	on_map_change.connect(_on_map_change)
-	#on_map_change.emit(0)
 	MinigameManager.on_minigame_finished.connect(_on_minigame_finished)
 	MinigameManager.on_club_minigame_finished.connect(_on_club_minigame_finished)
 	MinigameManager.post_game_delay.timeout.connect(_on_minigame_closed)
