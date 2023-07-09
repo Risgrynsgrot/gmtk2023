@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyd50defq0rny"]
 
 [ext_resource type="Script" path="res://Scripts/CleaningSpot.gd" id="1_h7pg2"]
-[ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="2_edrjm"]
+[ext_resource type="Texture2D" uid="uid://biwbrhtcy8srp" path="res://Sprites/DirtAlmond.PNG" id="2_xdex6"]
 [ext_resource type="Texture2D" uid="uid://chufrn1w0gll6" path="res://Sprites/particle_star.png" id="3_yh4w6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pk4j2"]
@@ -15,8 +15,8 @@ sparkle_sprite = NodePath("SparkleSprite")
 
 [node name="DirtSprite" type="Sprite2D" parent="."]
 position = Vector2(-3.5, -9.53674e-07)
-scale = Vector2(3.56, 3.44)
-texture = ExtResource("2_edrjm")
+scale = Vector2(0.384068, 0.371122)
+texture = ExtResource("2_xdex6")
 
 [node name="SparkleSprite" type="Sprite2D" parent="."]
 visible = false
