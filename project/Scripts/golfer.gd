@@ -1,19 +1,21 @@
 extends Node2D
 
 signal on_map_change(index: int)
-
+signal on_change_club(value: float)
 @export var maps: Array[PackedScene]
 
 var ball: Node2D
-var my_values: MinigameValues
+var minigame_values: MinigameValues
+var club_value : float
 var current_map_index: int = -1
 var map_changed: bool = false
 
 func _ready():
-	my_values = MinigameValues.new()
+	minigame_values = MinigameValues.new()
 	on_map_change.connect(_on_map_change)
-#	on_map_change.emit(0)
+	on_map_change.emit(0)
 	MinigameManager.on_minigame_finished.connect(_on_minigame_finished)
+	MinigameManager.on_club_minigame_finished.connect(_on_club_minigame_finished)
 	MinigameManager.post_game_delay.timeout.connect(_on_minigame_closed)
 
 func _process(_delta):
@@ -39,14 +41,20 @@ func _on_map_change(index: int):
 		current_map_index = index
 		map_changed = true
 
+func _choose_club():
+	MinigameManager.start_club_minigame()
 
 func _on_minigame_finished(values: MinigameValues, _finished_text: String):
-	my_values.wind += values.wind
-	my_values.confidence += values.confidence
+	minigame_values.wind += values.wind
+	minigame_values.confidence += values.confidence
+	
+func _on_club_minigame_finished(club_minigame_value: float, _finished_text: String):
+	club_value = club_minigame_value
+	ball.current_distance = club_value
+	ball.do_swing()
 
 func _on_minigame_closed():
-	ball.do_swing()
-	
+	_choose_club()
 
 func _on_ball_landed():
 	print("landed event")

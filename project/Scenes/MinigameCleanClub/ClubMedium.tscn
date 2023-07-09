@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/CleaningClub.gd" id="1_57t6w"]
 [ext_resource type="Texture2D" uid="uid://356pxwm60wv5" path="res://Sprites/ClubMedium.PNG" id="2_5pmdm"]
-[ext_resource type="PackedScene" uid="uid://dyd50defq0rny" path="res://Scenes/MinigameCleanClub/Dirt.tscn" id="3_ykexi"]
+[ext_resource type="PackedScene" path="res://Scenes/MinigameCleanClub/Dirt.tscn" id="3_ykexi"]
 [ext_resource type="Texture2D" uid="uid://blbkcy0jvuf5q" path="res://Sprites/DirtBrown.PNG" id="4_jxdky"]
 [ext_resource type="Texture2D" uid="uid://d4k5d4ui17jp1" path="res://Sprites/DirtGreen.PNG" id="5_jmwm8"]
 
