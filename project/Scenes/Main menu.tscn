@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://ga0744qjmwhx"]
+
+[ext_resource type="Texture2D" uid="uid://bkm1py3fltifi" path="res://Sprites/golfcourse.jpg" id="1_j7u2u"]
+[ext_resource type="Script" path="res://Scenes/Main menu.gd" id="1_wdo4l"]
+[ext_resource type="Theme" uid="uid://t0o5edidqifi" path="res://Main_theme.tres" id="2_0ga4g"]
+[ext_resource type="Texture2D" uid="uid://br6bqqdok7376" path="res://Sprites/title.png" id="2_1r5hr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wdo4l")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_j7u2u")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 7.0
+offset_right = 2339.0
+offset_bottom = 1087.0
+texture = ExtResource("2_1r5hr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -250.0
+offset_right = 57.8802
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.285, 2.285)
+
+[node name="Start Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_0ga4g")
+text = "Start"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_0ga4g")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
