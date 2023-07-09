@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8xe45jiivosc"]
+[gd_scene load_steps=14 format=3 uid="uid://c8xe45jiivosc"]
 
 [ext_resource type="Texture2D" uid="uid://bxboimnk88jkn" path="res://Sprites/RolfHappi.PNG" id="1_52voj"]
+[ext_resource type="Script" path="res://Scripts/RolfContainer.gd" id="1_b7jq6"]
 [ext_resource type="Texture2D" uid="uid://dvsgs8ea1hvdl" path="res://Sprites/RolfNeutral.PNG" id="1_x0c40"]
 [ext_resource type="Texture2D" uid="uid://cyk3441og2ecl" path="res://Sprites/RolfHair.PNG" id="2_m3w0l"]
 [ext_resource type="Texture2D" uid="uid://we55jb6iyweg" path="res://Sprites/RolfGlasses.PNG" id="3_p1iau"]
@@ -13,7 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://2nhbah78ynlh" path="res://Sprites/RolfVein.PNG" id="9_hu6ts"]
 [ext_resource type="Texture2D" uid="uid://d4aty5k7wdw7r" path="res://Sprites/RolfWind.PNG" id="10_c6wq3"]
 
-[node name="RolfContainer" type="Node2D"]
+[node name="RolfContainer" type="Node2D" node_paths=PackedStringArray("rolf_happy", "rolf_neutral", "rolf_bummed", "rolf_angry")]
+script = ExtResource("1_b7jq6")
+rolf_happy = NodePath("Happi")
+rolf_neutral = NodePath("Neutral")
+rolf_bummed = NodePath("Bummed")
+rolf_angry = NodePath("Angry")
 
 [node name="Happi" type="Node2D" parent="."]
 visible = false
