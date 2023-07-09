@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="3_3x8cb"]
 
 [sub_resource type="Curve" id="Curve_xqtuq"]
-_data = [Vector2(0, 0), 0.0, 1.8676, 0, 0, Vector2(0.5, 0.8), 0.847071, 0.847071, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.75943, 0, 0, Vector2(0.7, 0.9), 0.847071, 0.847071, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_sfo6b"]
-_data = [Vector2(0, 0), 0.0, 2.96943, 0, 0, Vector2(0.388626, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 0.004), -2.27534, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 2.96943, 0, 0, Vector2(0.497573, 0.985765), 0.0, 0.0, 0, 0, Vector2(0.951456, 0.0177935), -2.27534, 0.0, 0, 0]
 point_count = 3
 
 [node name="GolfMap" type="Node2D"]
