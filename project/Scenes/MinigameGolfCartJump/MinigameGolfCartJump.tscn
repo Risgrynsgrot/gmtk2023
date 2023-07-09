@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bineuva407ffc"]
+[gd_scene load_steps=19 format=3 uid="uid://bineuva407ffc"]
 
 [ext_resource type="Script" path="res://Scripts/Car.gd" id="1_mtykk"]
 [ext_resource type="Script" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.gd" id="1_sbppe"]
 [ext_resource type="Texture2D" uid="uid://cjkilv4qmtu1f" path="res://Sprites/clap_hand.png" id="2_k1y1g"]
 [ext_resource type="Theme" uid="uid://ceqrweerp70hp" path="res://Main_theme.tres" id="4_27kth"]
+[ext_resource type="AudioStream" uid="uid://die1ot0fnr71v" path="res://Sounds/golf_cart.wav" id="4_pntw7"]
+[ext_resource type="AudioStream" uid="uid://c5xfe7our512r" path="res://Sounds/Car_crash.mp3" id="5_guh20"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vsxs"]
 friction = 0.1
@@ -62,6 +64,13 @@ position = Vector2(-26, -6)
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_k1y1g")
+
+[node name="DriveSound" type="AudioStreamPlayer2D" parent="Car"]
+stream = ExtResource("4_pntw7")
+autoplay = true
+
+[node name="CrashSound" type="AudioStreamPlayer2D" parent="Car"]
+stream = ExtResource("5_guh20")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(102, 372)
