@@ -47,8 +47,7 @@ func _on_minigame_finished(values: MinigameValues, finished_text: String, won: b
 	if won:
 		timeout_label.text = "[wave amp=50.0 freq=5.0 connected=1][center]" + finished_text + "[/center][/wave]"
 	else:
-		timeout_label.text = "[wave amp=50.0 freq=5.0 connected=1][center]" + finished_text + "[/center][/wave]"
-	timeout_label.text = "[shake rate=40.0 level=10 connected=1][center]" + finished_text + "[/center][/shake]"
+		timeout_label.text = "[shake rate=40.0 level=10 connected=1][center]" + finished_text + "[/center][/shake]"
 	timeout_label.show()
 	post_game_delay.start()
 	is_active = false
