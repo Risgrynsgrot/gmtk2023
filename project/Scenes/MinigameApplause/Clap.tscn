@@ -5,7 +5,6 @@
 
 [node name="Clap" type="Node2D"]
 script = ExtResource("1_2b8a2")
-
 rotation_range = Vector2(-60, 60)
 min_offset_range = Vector2(20, 50)
 offset_range = Vector2(100, 200)
