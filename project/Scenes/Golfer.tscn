@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpclu52u12tqd"]
+[gd_scene load_steps=3 format=3 uid="uid://dynarkdtg1rnq"]
 
 [ext_resource type="Script" path="res://Scripts/golfer.gd" id="1_2pqaj"]
 [ext_resource type="PackedScene" uid="uid://dsp28litskf2" path="res://Scenes/GolfMap.tscn" id="2_rm8kx"]

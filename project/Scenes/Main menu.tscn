@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://csr1cf2pvcicp"]
 
-[ext_resource type="Texture2D" uid="uid://bkm1py3fltifi" path="res://Sprites/golfcourse.jpg" id="1_j7u2u"]
 [ext_resource type="Script" path="res://Scenes/Main menu.gd" id="1_wdo4l"]
 [ext_resource type="Theme" uid="uid://ceqrweerp70hp" path="res://Main_theme.tres" id="2_0ga4g"]
 [ext_resource type="Texture2D" uid="uid://br6bqqdok7376" path="res://Sprites/title.png" id="2_1r5hr"]
+[ext_resource type="PackedScene" uid="uid://b48r634n5kbvv" path="res://Scenes/GolfMapMockup.tscn" id="2_5rwf7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,11 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdo4l")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("1_j7u2u")
+[node name="GolfMap" parent="." instance=ExtResource("2_5rwf7")]
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
