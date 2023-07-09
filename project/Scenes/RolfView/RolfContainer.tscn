@@ -14,100 +14,272 @@
 [ext_resource type="Texture2D" uid="uid://2nhbah78ynlh" path="res://Sprites/RolfVein.PNG" id="9_hu6ts"]
 [ext_resource type="Texture2D" uid="uid://d4aty5k7wdw7r" path="res://Sprites/RolfWind.PNG" id="10_c6wq3"]
 
-[node name="RolfContainer" type="Node2D" node_paths=PackedStringArray("rolf_happy", "rolf_neutral", "rolf_bummed", "rolf_angry")]
+[node name="RolfContainer" type="Control" node_paths=PackedStringArray("rolf_happy", "rolf_neutral", "rolf_bummed", "rolf_angry")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_b7jq6")
 rolf_happy = NodePath("Happi")
 rolf_neutral = NodePath("Neutral")
 rolf_bummed = NodePath("Bummed")
 rolf_angry = NodePath("Angry")
 
-[node name="Happi" type="Node2D" parent="."]
-visible = false
-position = Vector2(925, 523)
+[node name="Happi" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 925.0
+offset_top = 523.0
+offset_right = 925.0
+offset_bottom = 523.0
 
-[node name="Face" type="Sprite2D" parent="Happi"]
+[node name="Face" type="TextureRect" parent="Happi"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.5
+offset_top = -492.0
+offset_right = 602.5
+offset_bottom = 492.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_52voj")
 
-[node name="Hair" type="Sprite2D" parent="Happi"]
-position = Vector2(-404, -468)
+[node name="Hair" type="TextureRect" parent="Happi"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -597.0
+offset_right = -224.0
+offset_bottom = -354.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_m3w0l")
 
-[node name="Glasses" type="Sprite2D" parent="Happi"]
-position = Vector2(-300, -168)
+[node name="Glasses" type="TextureRect" parent="Happi"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -317.0
+offset_right = 6.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_p1iau")
 
-[node name="Neutral" type="Node2D" parent="."]
+[node name="Neutral" type="Control" parent="."]
 visible = false
-position = Vector2(925, 523)
+anchors_preset = 0
+offset_left = 925.0
+offset_top = 523.0
+offset_right = 925.0
+offset_bottom = 523.0
 
-[node name="Face" type="Sprite2D" parent="Neutral"]
+[node name="Face" type="TextureRect" parent="Neutral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -602.0
+offset_top = -495.5
+offset_right = 602.0
+offset_bottom = 495.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_x0c40")
 
-[node name="Hair" type="Sprite2D" parent="Neutral"]
-position = Vector2(-404, -468)
+[node name="Hair" type="TextureRect" parent="Neutral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -597.0
+offset_right = -224.0
+offset_bottom = -354.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_m3w0l")
 
-[node name="Glasses" type="Sprite2D" parent="Neutral"]
-position = Vector2(-300, -168)
+[node name="Glasses" type="TextureRect" parent="Neutral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -306.0
+offset_right = 17.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_p1iau")
 
-[node name="Bummed" type="Node2D" parent="."]
+[node name="Bummed" type="Control" parent="."]
 visible = false
-position = Vector2(925, 523)
+anchors_preset = 0
+offset_left = 925.0
+offset_top = 523.0
+offset_right = 925.0
+offset_bottom = 523.0
 
-[node name="Face" type="Sprite2D" parent="Bummed"]
+[node name="Face" type="TextureRect" parent="Bummed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -470.5
+offset_right = 579.0
+offset_bottom = 470.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_qpex4")
 
-[node name="Hair" type="Sprite2D" parent="Bummed"]
-position = Vector2(-341, -483)
+[node name="Hair" type="TextureRect" parent="Bummed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -597.0
+offset_right = -128.0
+offset_bottom = -331.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_rirgc")
 
-[node name="Glasses" type="Sprite2D" parent="Bummed"]
-position = Vector2(-239, -155)
+[node name="Glasses" type="TextureRect" parent="Bummed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -523.0
+offset_top = -283.0
+offset_right = 63.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_p1iau")
 
-[node name="Brows" type="Sprite2D" parent="Bummed"]
-position = Vector2(-198, -301)
+[node name="Brows" type="TextureRect" parent="Bummed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -402.0
+offset_right = 38.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("6_mbmvv")
 
-[node name="Wind" type="Sprite2D" parent="Bummed"]
-position = Vector2(89, 130)
+[node name="Wind" type="TextureRect" parent="Bummed"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = -164.0
+offset_right = 581.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("10_c6wq3")
 
-[node name="Angry" type="Node2D" parent="."]
+[node name="Angry" type="Control" parent="."]
 visible = false
-position = Vector2(925, 523)
+anchors_preset = 0
+offset_left = 925.0
+offset_top = 523.0
+offset_right = 925.0
+offset_bottom = 523.0
 
-[node name="Face" type="Sprite2D" parent="Angry"]
+[node name="Face" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -661.0
+offset_top = -502.0
+offset_right = 499.0
+offset_bottom = 483.0
 texture = ExtResource("4_3cmke")
 
-[node name="Hair" type="Sprite2D" parent="Angry"]
-position = Vector2(-341, -483)
+[node name="Hair" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -624.0
+offset_top = -646.0
+offset_right = -240.0
+offset_bottom = -380.0
 texture = ExtResource("5_rirgc")
 
-[node name="Eyes" type="Sprite2D" parent="Angry"]
-position = Vector2(-262, -189)
+[node name="Eyes" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -489.0
+offset_top = -310.0
+offset_right = -146.0
+offset_bottom = -104.0
 texture = ExtResource("7_rtaol")
 
-[node name="Glasses" type="Sprite2D" parent="Angry"]
-position = Vector2(-330, -249)
+[node name="Glasses" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -734.0
+offset_top = -261.0
+offset_right = -148.0
+offset_bottom = 4.0
 rotation = -0.480313
 texture = ExtResource("3_p1iau")
 
-[node name="Brows" type="Sprite2D" parent="Angry"]
-position = Vector2(-252, -311)
+[node name="Brows" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -555.0
+offset_top = -500.0
+offset_right = -95.0
+offset_bottom = -247.0
 texture = ExtResource("6_mbmvv")
 
-[node name="Words" type="Sprite2D" parent="Angry"]
-position = Vector2(788, -236)
+[node name="Words" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = -659.0
+offset_right = 1414.0
+offset_bottom = 18.0
 texture = ExtResource("8_t5jj4")
 
-[node name="Vein" type="Sprite2D" parent="Angry"]
-position = Vector2(-44, -395)
+[node name="Vein" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -686.0
+offset_top = -504.0
+offset_right = -449.0
+offset_bottom = -235.0
 texture = ExtResource("9_hu6ts")
 
-[node name="Wind" type="Sprite2D" parent="Angry"]
-position = Vector2(-662, 177)
+[node name="Wind" type="TextureRect" parent="Angry"]
+layout_mode = 0
+offset_left = -624.0
+offset_top = 83.0
+offset_right = -261.0
+offset_bottom = 449.0
 rotation = 1.93408
 scale = Vector2(0.720311, 0.720311)
 texture = ExtResource("10_c6wq3")

@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dynarkdtg1rnq"]
+[gd_scene load_steps=7 format=3 uid="uid://dynarkdtg1rnq"]
 
 [ext_resource type="Script" path="res://Scripts/golfer.gd" id="1_2pqaj"]
 [ext_resource type="PackedScene" uid="uid://dsp28litskf2" path="res://Scenes/GolfMap.tscn" id="2_rm8kx"]
+[ext_resource type="PackedScene" uid="uid://c8xe45jiivosc" path="res://Scenes/RolfView/RolfContainer.tscn" id="3_txf42"]
+
+[sub_resource type="Animation" id="Animation_7ajp6"]
+resource_name = "Show_panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.69, 0.69)]
+}
+
+[sub_resource type="Animation" id="Animation_kxljv"]
+resource_name = "Hide_Panel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.69, 0.69), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uyscs"]
+_data = {
+"Hide_Panel": SubResource("Animation_kxljv"),
+"Show_panel": SubResource("Animation_7ajp6")
+}
 
 [node name="Golfer" type="Node2D"]
 script = ExtResource("1_2pqaj")
@@ -13,5 +50,86 @@ wait_time = 2.0
 [node name="AfterMinigameDelay" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RolfPanel" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 676.0
+offset_bottom = 596.0
+scale = Vector2(1e-05, 1e-05)
+
+[node name="RolfContainer" parent="CanvasLayer/RolfPanel" instance=ExtResource("3_txf42")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Happi" parent="CanvasLayer/RolfPanel/RolfContainer" index="0"]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Face" parent="CanvasLayer/RolfPanel/RolfContainer/Happi" index="0"]
+offset_left = -594.0
+offset_top = -459.0
+offset_right = 611.0
+offset_bottom = 525.0
+
+[node name="Hair" parent="CanvasLayer/RolfPanel/RolfContainer/Happi" index="1"]
+offset_left = -591.5
+offset_top = -564.0
+offset_right = -215.5
+offset_bottom = -321.0
+
+[node name="Glasses" parent="CanvasLayer/RolfPanel/RolfContainer/Happi" index="2"]
+offset_left = -571.5
+offset_top = -284.0
+offset_right = 14.5
+offset_bottom = -19.0
+
+[node name="Neutral" parent="CanvasLayer/RolfPanel/RolfContainer" index="1"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Bummed" parent="CanvasLayer/RolfPanel/RolfContainer" index="2"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Angry" parent="CanvasLayer/RolfPanel/RolfContainer" index="3"]
+offset_left = 52.0
+offset_top = 24.0
+offset_right = 52.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/RolfPanel"]
+libraries = {
+"": SubResource("AnimationLibrary_uyscs")
+}
+
+[node name="ShowTimer" type="Timer" parent="CanvasLayer/RolfPanel"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="StartGameTimerDelay" to="." method="_on_start_game_timer_delay_timeout"]
 [connection signal="timeout" from="AfterMinigameDelay" to="." method="_on_after_minigame_delay_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/RolfPanel/AnimationPlayer" to="CanvasLayer/RolfPanel/RolfContainer" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="CanvasLayer/RolfPanel/ShowTimer" to="CanvasLayer/RolfPanel/RolfContainer" method="_on_show_timer_timeout"]
+
+[editable path="CanvasLayer/RolfPanel/RolfContainer"]
