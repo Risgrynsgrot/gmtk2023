@@ -93,7 +93,6 @@ theme = ExtResource("4_yvypn")
 [node name="MinigameViewport" type="SubViewport" parent="CanvasLayer/Control/MinigameView/SubViewportContainer"]
 unique_name_in_owner = true
 disable_3d = true
-handle_input_locally = false
 render_target_update_mode = 0
 
 [node name="WinLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
