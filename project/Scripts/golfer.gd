@@ -51,8 +51,8 @@ func _on_club_minigame_finished(club_minigame_value: float, _finished_text: Stri
 	ball.do_swing()
 
 func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won: bool):
-	my_values.wind += values.wind
-	my_values.confidence += values.confidence
+	minigame_values.wind += values.wind
+	minigame_values.confidence += values.confidence
 
 func _on_minigame_closed():
 	_choose_club()
