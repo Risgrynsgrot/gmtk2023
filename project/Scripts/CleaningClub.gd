@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var hover_speed: float = 10.0
+@export var dirt: Array[Node2D]
 var original_position: Vector2
 var original_scale: Vector2
 var hovered: bool
@@ -25,13 +26,13 @@ func _process(delta):
 	scale_towards(target_scale, delta)
 	pass
 
-func move_towards(position: Vector2, delta):
-	var diff = position - self.position
+func move_towards(target: Vector2, delta):
+	var diff = target - self.position
 	self.position += diff * delta * hover_speed
 	pass
-	
-func scale_towards(scale: Vector2, delta):
-	var diff = scale - self.scale
+
+func scale_towards(target: Vector2, delta):
+	var diff = target - self.scale
 	self.scale += diff * delta * hover_speed
 	pass
 
@@ -50,23 +51,26 @@ func _on_area_2d_mouse_exited():
 	hovered = false
 	pass # Replace with function body.
 
-
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selected = true
-			print("selecting")
-			minigame.emit_signal("selected_club")
-			target_position = get_viewport_rect().get_center() + Vector2(0.0, 300)
+			select_club()
 	pass
-	
+
 func hide_club():
-	print("called hide")
 	if selected == false:
-		print("hiding!!")
 		target_position = original_position + Vector2(0.0, 500.0)
 	pass
-	
+
+func select_club():
+	selected = true
+	minigame.emit_signal("selected_club")
+	target_position = get_viewport_rect().get_center() + Vector2(0.0, 800)
+	target_scale = original_scale * Vector2(2.0, 2.0)
+	for dirt_spot in dirt:
+		dirt_spot.cleaning_locked = false
+	pass
+
 func register_listener(emitter: Node):
 	minigame = emitter
 	minigame.connect("selected_club", hide_club)
