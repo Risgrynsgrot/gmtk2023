@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Car.gd" id="1_mtykk"]
 [ext_resource type="Script" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.gd" id="1_sbppe"]
-[ext_resource type="PackedScene" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="2_50x2b"]
-[ext_resource type="Theme" uid="uid://t0o5edidqifi" path="res://Main_theme.tres" id="4_27kth"]
-[ext_resource type="Texture2D" uid="uid://c1r4pfwb587pu" path="res://Sprites/GolfKart.PNG" id="4_nbqdr"]
-[ext_resource type="AudioStream" uid="uid://die1ot0fnr71v" path="res://Sounds/golf_cart.wav" id="4_o224a"]
-[ext_resource type="AudioStream" uid="uid://c5xfe7our512r" path="res://Sounds/Car_crash.mp3" id="5_l55q7"]
+[ext_resource type="Texture2D" uid="uid://c1r4pfwb587pu" path="res://Sprites/GolfKart.PNG" id="4_v7iv7"]
+[ext_resource type="PackedScene" path="res://Scenes/MinigameGolfCartJump/Decorations.tscn" id="4_y7h3h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vsxs"]
 friction = 0.1

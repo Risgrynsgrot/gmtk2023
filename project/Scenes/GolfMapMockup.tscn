@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bthxcgdpanopa"]
+[gd_scene load_steps=22 format=3 uid="uid://b48r634n5kbvv"]
 
 [ext_resource type="Script" path="res://Scripts/Hole.gd" id="1_s8sa7"]
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="3_3hgot"]
