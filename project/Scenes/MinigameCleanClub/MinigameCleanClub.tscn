@@ -78,9 +78,8 @@ position = Vector2(926, 763)
 [node name="Club4" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
 position = Vector2(1161, 753)
 
-[node name="Club5" parent="MinigameCleanClubs" node_paths=PackedStringArray("dirt") instance=ExtResource("2_2sv80")]
+[node name="Club5" parent="MinigameCleanClubs" instance=ExtResource("2_2sv80")]
 position = Vector2(1380, 759)
-dirt = [NodePath("../Club4/Dirt"), NodePath("../Club4/Dirt2"), NodePath("../Club4/Dirt3"), NodePath("../Club4/Dirt4")]
 
 [node name="Sprite2D" parent="MinigameCleanClubs/Club5" index="0"]
 texture = ExtResource("5_64smj")

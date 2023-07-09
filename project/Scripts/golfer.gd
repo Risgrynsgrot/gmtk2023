@@ -44,14 +44,15 @@ func _on_map_change(index: int):
 func _choose_club():
 	MinigameManager.start_club_minigame()
 
-func _on_minigame_finished(values: MinigameValues, _finished_text: String):
-	minigame_values.wind += values.wind
-	minigame_values.confidence += values.confidence
 	
 func _on_club_minigame_finished(club_minigame_value: float, _finished_text: String):
 	club_value = club_minigame_value
 	ball.current_distance = club_value
 	ball.do_swing()
+
+func _on_minigame_finished(values: MinigameValues, _finished_text: String, _won: bool):
+	my_values.wind += values.wind
+	my_values.confidence += values.confidence
 
 func _on_minigame_closed():
 	_choose_club()

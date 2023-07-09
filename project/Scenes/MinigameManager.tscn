@@ -4,25 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4cmku5owv4jy" path="res://Scenes/MinigameApplause/MinigameApplause.tscn" id="2_xedsu"]
 [ext_resource type="PackedScene" uid="uid://bineuva407ffc" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.tscn" id="3_tmww2"]
 [ext_resource type="PackedScene" uid="uid://7oejxy5ta3o7" path="res://Scenes/MinigameCleanClub/MinigameCleanClub.tscn" id="4_wxr6p"]
-
-[sub_resource type="FontFile" id="FontFile_swxh0"]
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/60/0 = Vector2(0, 0)
-cache/0/60/0/ascent = 0.0
-cache/0/60/0/descent = 0.0
-cache/0/60/0/underline_position = 0.0
-cache/0/60/0/underline_thickness = 0.0
-cache/0/60/0/scale = 1.0
-cache/0/60/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/60/0/kerning_overrides/60/0 = Vector2(0, 0)
+[ext_resource type="Theme" uid="uid://ceqrweerp70hp" path="res://Main_theme.tres" id="4_yvypn"]
 
 [node name="MinigameManager" type="Node"]
 script = ExtResource("1_bm421")
@@ -38,22 +20,31 @@ one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TimeLeftProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_yvypn")
+
+[node name="TimeLeftProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -309.0
-offset_right = 244.0
-offset_bottom = -281.0
+offset_left = 665.0
+offset_top = 211.0
+offset_right = 1184.0
+offset_bottom = 239.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_yvypn")
 
-[node name="TimeLeftText" type="Label" parent="CanvasLayer/TimeLeftProgressBar"]
+[node name="TimeLeftText" type="Label" parent="CanvasLayer/Control/TimeLeftProgressBar"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -65,24 +56,27 @@ offset_top = -13.0
 offset_right = 100.0
 offset_bottom = 13.0
 grow_vertical = 2
+theme = ExtResource("4_yvypn")
 text = "Time left: "
 
-[node name="MinigameView" type="Panel" parent="CanvasLayer"]
+[node name="MinigameView" type="Panel" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -275.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = 665.0
+offset_top = 245.0
+offset_right = 1190.0
+offset_bottom = 770.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_yvypn")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/MinigameView"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Control/MinigameView"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -96,30 +90,35 @@ offset_right = 256.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_yvypn")
 
-[node name="MinigameViewport" type="SubViewport" parent="CanvasLayer/MinigameView/SubViewportContainer"]
+[node name="MinigameViewport" type="SubViewport" parent="CanvasLayer/Control/MinigameView/SubViewportContainer"]
 unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
 render_target_update_mode = 0
 
-[node name="WinLabel" type="Label" parent="CanvasLayer"]
+[node name="WinLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -39.5
-offset_right = 120.0
-offset_bottom = 39.5
+offset_left = 462.0
+offset_top = 479.0
+offset_right = 1418.0
+offset_bottom = 625.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = SubResource("FontFile_swxh0")
-theme_override_font_sizes/font_size = 60
-text = "You win!"
+theme = ExtResource("4_yvypn")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "you win"
+fit_content = true
+scroll_active = false
 
 [connection signal="timeout" from="PostMiniGameDelay" to="." method="_on_post_mini_game_delay_timeout"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
