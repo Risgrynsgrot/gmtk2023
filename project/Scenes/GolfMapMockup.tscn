@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b48r634n5kbvv"]
+[gd_scene load_steps=24 format=3 uid="uid://b48r634n5kbvv"]
 
 [ext_resource type="Script" path="res://Scripts/Hole.gd" id="1_s8sa7"]
 [ext_resource type="Script" path="res://Scripts/Ball.gd" id="3_3hgot"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://bjdwgucowuca4" path="res://Sprites/Water2.PNG" id="15_5wm4q"]
 [ext_resource type="Texture2D" uid="uid://bg6a0mwe1m8ur" path="res://Sprites/Water1.PNG" id="16_lnfe8"]
 [ext_resource type="Texture2D" uid="uid://b7d0786kjrdfa" path="res://Sprites/BallSmall.PNG" id="20_hcago"]
+[ext_resource type="AudioStream" uid="uid://o7edngomy4eu" path="res://Sounds/Golf_Swing.mp3" id="20_wmfiy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02uls"]
 
 [sub_resource type="Curve" id="Curve_xqtuq"]
 _data = [Vector2(0, 0), 0.0, 2.11435, 0, 0, Vector2(0.5, 0.7), 0.833992, 0.833992, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -374,7 +377,13 @@ position = Vector2(626.997, -752.002)
 position = Vector2(387.995, -1302)
 
 [node name="End Position" type="Marker2D" parent="Hole Test"]
-position = Vector2(193.994, -1686)
+position = Vector2(192.994, -1682)
+
+[node name="Area2D" type="Area2D" parent="Hole Test/End Position"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole Test/End Position/Area2D"]
+scale = Vector2(3.695, 3.695)
+shape = SubResource("CircleShape2D_02uls")
 
 [node name="Ball" type="Node2D" parent="." node_paths=PackedStringArray("hole")]
 position = Vector2(887.999, -244.003)
@@ -387,7 +396,9 @@ time_to_lerp_distance_curve = SubResource("Curve_xqtuq")
 time_to_scale_deformation_curve = SubResource("Curve_sfo6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
-position = Vector2(-17.9284, -1.99994)
 texture = ExtResource("20_hcago")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource("20_wmfiy")
+
+[connection signal="body_entered" from="Hole Test/End Position/Area2D" to="Ball" method="_on_area_2d_body_entered"]

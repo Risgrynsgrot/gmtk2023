@@ -53,3 +53,8 @@ func do_swing():
 		print("swinging")
 		has_swung = true
 		$AudioStreamPlayer.play()
+
+
+func _on_area_2d_body_entered(body):
+	print("win!")
+	pass # Replace with function body.
