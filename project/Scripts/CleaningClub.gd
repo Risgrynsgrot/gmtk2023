@@ -11,6 +11,10 @@ var minigame: Node
 var target_position: Vector2
 var target_scale: Vector2
 
+var dirt_cleaned_count: int
+
+signal clean
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	original_position = self.position
@@ -18,6 +22,7 @@ func _ready():
 	target_position = original_position
 	target_scale = original_scale
 	selected = false
+	dirt_cleaned_count = 0
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,11 +72,20 @@ func select_club():
 	minigame.emit_signal("selected_club")
 	target_position = get_viewport_rect().get_center() + Vector2(0.0, 800)
 	target_scale = original_scale * Vector2(2.0, 2.0)
+	connect("clean", cleaned_dirt)
 	for dirt_spot in dirt:
 		dirt_spot.cleaning_locked = false
+		dirt_spot.golf_club = self
 	pass
 
 func register_listener(emitter: Node):
 	minigame = emitter
 	minigame.connect("selected_club", hide_club)
+	pass
+
+func cleaned_dirt():
+	dirt_cleaned_count += 1
+	if (dirt_cleaned_count >= dirt.size()):
+		#TODO: send minigame finsihed
+		print("finished cleaning!")
 	pass
