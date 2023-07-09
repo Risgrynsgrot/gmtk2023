@@ -17,6 +17,8 @@ var target_dirt_scale: Vector2
 
 var sparkle_timer: float
 
+var golf_club: Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_clean_count = collisions_until_clean
@@ -51,9 +53,9 @@ func _on_area_2d_mouse_entered():
 	elif (collisions_until_polished > 0):
 		collisions_until_polished -= 1
 		if (collisions_until_polished <= 0):
-			sparkle_sprite.show() #TODO: show fancy scaling or start 
+			sparkle_sprite.show()
+			golf_club.emit_signal("clean")
 	
 	var clean_scale = float(collisions_until_clean)/float(start_clean_count)
 	target_dirt_scale = original_dirt_scale * clean_scale
 	pass
-
