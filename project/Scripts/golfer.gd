@@ -6,13 +6,15 @@ signal on_map_change(index: int)
 
 var ball: Node2D
 var my_values: MinigameValues
-var current_map_index: int = 0
+var current_map_index: int = -1
 var map_changed: bool = false
 
 func _ready():
 	my_values = MinigameValues.new()
 	on_map_change.connect(_on_map_change)
 	on_map_change.emit(0)
+	MinigameManager.on_minigame_finished.connect(_on_minigame_finished)
+	MinigameManager.post_game_delay.timeout.connect(_on_minigame_closed)
 
 func _process(_delta):
 	if map_changed:
@@ -41,7 +43,11 @@ func _on_map_change(index: int):
 func _on_minigame_finished(values: MinigameValues, _finished_text: String):
 	my_values.wind += values.wind
 	my_values.confidence += values.confidence
+
+func _on_minigame_closed():
 	ball.do_swing()
+	
 
 func _on_ball_landed():
+	print("landed event")
 	MinigameManager.start_new_minigame()

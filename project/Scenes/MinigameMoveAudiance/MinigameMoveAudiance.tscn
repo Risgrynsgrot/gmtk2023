@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx847wturq7la"]
+
+[ext_resource type="Script" path="res://Scripts/MinigameMoveAudiance/Caddy.gd" id="1_3o6i5"]
+[ext_resource type="Texture2D" uid="uid://bjrl5w8ghejvs" path="res://Sprites/Person Transparent.png" id="1_cexjr"]
+[ext_resource type="Texture2D" uid="uid://bw70dwftmv6vp" path="res://Sprites/Person Transparent Red.png" id="2_jfud0"]
+[ext_resource type="Script" path="res://Scripts/MinigameMoveAudiance/Audiance.gd" id="3_u2ds8"]
+[ext_resource type="Texture2D" uid="uid://dl6gfom1pk2bp" path="res://Sprites/alpha_golf_boll.png" id="4_u1e16"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgswr"]
+radius = 44.13
+
+[node name="MinigameMoveAudiance" type="Node2D"]
+
+[node name="Caddy" type="Node2D" parent="."]
+position = Vector2(1095, 552)
+script = ExtResource("1_3o6i5")
+
+[node name="PersonTransparent" type="Sprite2D" parent="Caddy"]
+position = Vector2(0, 3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_cexjr")
+
+[node name="Audience" type="Node2D" parent="."]
+script = ExtResource("3_u2ds8")
+
+[node name="Node2D" type="Node2D" parent="Audience"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Audience/Node2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jfud0")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Audience/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Audience/Node2D/RigidBody2D"]
+shape = SubResource("CircleShape2D_qgswr")
+
+[node name="Ball" type="Node2D" parent="."]
+position = Vector2(645, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(30, 30)
+texture = ExtResource("4_u1e16")

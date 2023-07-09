@@ -36,6 +36,7 @@ func _process(delta):
 		var scale_deformation = time_to_scale_deformation_curve.sample(curve_distance)
 		self.scale = Vector2( 1+scale_deformation, 1+scale_deformation);
 		if lerp_value > 0.95:
+			print("landed")
 			is_flying = false
 			swing_position = self.position
 			self.scale = Vector2(1,1)

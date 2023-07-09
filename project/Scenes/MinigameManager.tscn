@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6a3toel8dyh8"]
+[gd_scene load_steps=5 format=3 uid="uid://c6a3toel8dyh8"]
 
 [ext_resource type="Script" path="res://Scripts/MinigameManager.gd" id="1_bm421"]
 [ext_resource type="PackedScene" uid="uid://4cmku5owv4jy" path="res://Scenes/MinigameApplause/MinigameApplause.tscn" id="2_xedsu"]
+[ext_resource type="PackedScene" uid="uid://bineuva407ffc" path="res://Scenes/MinigameGolfCartJump/MinigameGolfCartJump.tscn" id="3_tmww2"]
 
 [sub_resource type="FontFile" id="FontFile_swxh0"]
 face_index = null
@@ -24,7 +25,7 @@ cache/0/60/0/kerning_overrides/60/0 = Vector2(0, 0)
 
 [node name="MinigameManager" type="Node"]
 script = ExtResource("1_bm421")
-minigames = Array[PackedScene]([ExtResource("2_xedsu")])
+minigames = Array[PackedScene]([ExtResource("2_xedsu"), ExtResource("3_tmww2")])
 
 [node name="PostMiniGameDelay" type="Timer" parent="."]
 wait_time = 4.0
