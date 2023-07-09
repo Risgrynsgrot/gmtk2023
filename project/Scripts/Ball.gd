@@ -52,4 +52,4 @@ func do_swing():
 	if !is_flying:
 		print("swinging")
 		has_swung = true
-		$AudioStreamPlayer2D.play()
+		$AudioStreamPlayer.play()
