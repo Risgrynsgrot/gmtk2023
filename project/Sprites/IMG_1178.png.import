@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ricj47uim7mi"
-path="res://.godot/imported/HandRight.png-0d2521268ce1864cde4044e933c83912.ctex"
+uid="uid://bv2noihnrvpfv"
+path="res://.godot/imported/IMG_1178.png-01077da916a2a25ae6df1b5651c1c8a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/HandRight.png"
-dest_files=["res://.godot/imported/HandRight.png-0d2521268ce1864cde4044e933c83912.ctex"]
+source_file="res://Sprites/IMG_1178.png"
+dest_files=["res://.godot/imported/IMG_1178.png-01077da916a2a25ae6df1b5651c1c8a7.ctex"]
 
 [params]
 
